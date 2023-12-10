@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ /*fonnto*/
+  div{
+    font-family: 'Yomogi', cursive;
+  }
+  /*アイコン丸*/
+  .rounded-icon {
+  border-radius: 50%;
+}
+

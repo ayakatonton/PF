@@ -1,0 +1,14 @@
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
+<!--% date_range.each do |day| %>-->
+<!--  % events = Event.where(date: day) %>-->
+<!--  %= content_tag :td, class: calendar.td_classes_for(day) do %>-->
+<!--    %= day.day %>-->
+<!--    % if events.present? %>-->
+<!--      % events.each do |event| %>-->
+<!--        %= link_to event.title, events_index_path(date: day), class: 'event-link' %>-->
+<!--      % end %>-->
+<!--    % end %>-->
+<!--  % end %>-->
+<!--% end %>-->

@@ -10,4 +10,9 @@ class Public::PhotosController < ApplicationController
 
   def edit
   end
+  
+  def photo_params
+    params.require(:photo).permit(:title, :body, :image)
+  end
+  
 end

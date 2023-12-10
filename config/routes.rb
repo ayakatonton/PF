@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'calendar/index'
+  end
   devise_for :admins
   
   devise_for :users
@@ -25,6 +28,9 @@ Rails.application.routes.draw do
     resources :photos
     resources :users
   end
-  
+  Rails.application.routes.draw do
+    # events#index 
+    get 'events', to: 'events#index', as: 'events_index'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

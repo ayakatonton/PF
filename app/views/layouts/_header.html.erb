@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #F76c6c;">
+  <a class="navbar-brand" href="/">
+    <!-- プロフィールイメージを表示する部分 -->
+    <% if user_signed_in? %>
+      <%= image_tag current_user.get_profile_image(60,60), class: "rounded-icon" %>
+    <% end %>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <!-- ナビゲーションアイテム -->
+    <!--ログインしている時ユーザー-->
+    <% if user_signed_in? %>
+      <%= link_to user_path(current_user), class:"nav-link text-light" do %>
+        <i class="fa-solid fa-house"></i>
+      <% end %>
+      <%= link_to public_calendar_index_path, class:"nav-link text-light" do %>
+        <i class="fa-regular fa-calendar-check"></i>
+      <% end %>
+      
+    
+      <!--アドミンがログインしてる時 -->
+    <% elsif admin_signed_in? %>
+   
+      
+      <!--ログインしていない時  -->
+    <% else %>
+    <% end %>
+    
+    </ul>
+  </div>
+</nav>
