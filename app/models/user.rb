@@ -4,7 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :profile_image
-         
+  has_many :photos
+  has_many :photo_bookmarks
+  has_many :event_bookmarks
+  has_many :groups
+  # バリテーション
+  validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 20 }
+  validates :introduction, length: { maximum: 100 }   
+   
    def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
