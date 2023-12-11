@@ -2,13 +2,23 @@ Rails.application.routes.draw do
   
   namespace :public do
     get 'calendar/index'
+  namespace :public do
+    resources :sessions, only: [:new, :create, :destroy]
   end
-  devise_for :admins
   
-  devise_for :users
+  end
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+  }
+  
+  devise_for :users, skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+  }
   
   scope module: :public do
-    get '/top' => 'homes#top'
+    root 'homes#top'
+    get 'about'=>"public/homes#about"
     get 'event_bookmarks/index'
     get 'event_bookmarks/show'
     get 'event_bookmarks/new'

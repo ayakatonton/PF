@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :event_bookmarks
   has_many :groups
   # バリテーション
-  validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 20 }
-  validates :introduction, length: { maximum: 100 }   
+  # validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 20 }
+# validates :introduction, length: { maximum: 100 }   
    
    def get_profile_image(width, height)
     unless profile_image.attached?
