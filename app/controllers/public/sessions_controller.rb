@@ -1,26 +1,26 @@
 class Public::SessionsController < ApplicationController
   before_action :user, only: [:create]
 
- def create
-    user = User.find_by(email: params[:user][:email])
+# def create
+#     user = User.find_by(email: params[:user][:email])
     
-    if user && user.valid_password?(params[:user][:password])
-      if user.is_active
-        # ログイン処理
-        # 例えば、sessionを使用してログイン状態を維持するなどの処理を行います
-        session[:user_id] = user.id
-        flash[:notice] = "ログインしました。"
-        redirect_to root_path # ログイン後にリダイレクトするパスを指定してください
-      else
-        flash[:notice] = "アカウントは退会状態です。"
-        redirect_to new_user_registration_path
-      end
-    else
-      flash[:alert] = "メールアドレスまたはパスワードが正しくありません。"
-      render :new # ログインフォームのビューを再度表示するなどの処理を行います
-    end
-  end
-end
+#     if user && user.valid_password?(params[:user][:password])
+#       if user.is_active
+#         # ログイン処理
+#         # 例えば、sessionを使用してログイン状態を維持するなどの処理を行います
+#         session[:user_id] = user.id
+#         flash[:notice] = "ログインしました。"
+#         redirect_to root_path # ログイン後にリダイレクトするパスを指定してください
+#       else
+#         flash[:notice] = "アカウントは退会状態です。"
+#         redirect_to new_user_registration_path
+#       end
+#     else
+#       flash[:alert] = "メールアドレスまたはパスワードが正しくありません。"
+#       render :new # ログインフォームのビューを再度表示するなどの処理を行います
+#     end
+#   end
+
   
   
    private
