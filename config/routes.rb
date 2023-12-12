@@ -1,24 +1,21 @@
 Rails.application.routes.draw do
-  
-  namespace :public do
-    get 'calendar/index'
-  namespace :public do
-    resources :sessions, only: [:new, :create, :destroy]
-  end
-  
-  end
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-  }
-  
   devise_for :users, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
   
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+  }
+  
+  namespace :public do
+    get 'calendar/index'
+    resources :sessions, only: [:new, :create, :destroy]
+  end
+
   scope module: :public do
     root 'homes#top'
-    get 'about'=>"public/homes#about"
+    get 'about'=>"homes#about"
     get 'event_bookmarks/index'
     get 'event_bookmarks/show'
     get 'event_bookmarks/new'
@@ -38,9 +35,9 @@ Rails.application.routes.draw do
     resources :photos
     resources :users
   end
-  Rails.application.routes.draw do
+
     # events#index 
     get 'events', to: 'events#index', as: 'events_index'
-  end
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

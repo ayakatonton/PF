@@ -1,59 +1,59 @@
-<div class="pc">
-  <footer>
-    <%= image_tag  "logo.jpg",size:"155x45" %>  
- </footer>
-</div>
+<footer>
+    <div class="pc">
+    <%= image_tag  "logo.jpg",size:"155x45", class:"center"  %>  
+    </div>
+</footer>
 
-<div class="su">
-  <footer>
+<footer>
+  <div class="su">
     <nav>
       <ul>
         <!--ログインしている時ユーザー-->
         <% if user_signed_in? %>
           <%= link_to root_path(current_user), class:"nav-link text-light" do %>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house fa-2xl"></i>
           <%end%>
           <%= link_to public_calendar_index_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-calendar-days"></i>
+            <i class="fa-solid fa-calendar-days fa-2xl"></i>
           <% end %>
           <%= link_to groups_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-users"></i>
+            <i class="fa-solid fa-users fa-2xl"></i>
           <% end %>
           <%= link_to event_bookmarks_index_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-calendar-check"></i>
+            <i class="fa-solid fa-calendar-check fa-2xl"></i>
           <% end %>
       <!--アドミンがログインしてる時 -->
         <% elsif admin_signed_in? %>
           <%= link_to root_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house fa-2xl"></i>
           <% end %>
           <%= link_to users_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-tag"></i>
+            <i class="fa-solid fa-tag fa-2xl"></i>
           <% end %>
           <%= link_to photos_path, class:"nav-link text-light" do %>
-            <i class="fa-regular fa-image"></i>
+            <i class="fa-regular fa-image fa-2xl"></i>
           <% end %>
           <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-right-from-bracket"></i>
+            <i class="fa-solid fa-right-from-bracket fa-2xl"></i>
           <% end %> 
           
           <!--ログインしていない時  -->
         <% else %>
           <%= link_to root_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house fa-2xl"></i>
           <% end %>
           <%= link_to public_calendar_index_path, class:"nav-link text-light" do %>
-            <i class="fa-regular fa-calendar-check"></i>
+            <i class="fa-regular fa-calendar-check fa-2xl"></i>
           <% end %>
           <%= link_to about_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-tag"></i>
+            <i class="fa-solid fa-tag fa-2xl"></i>
           <% end %>
           <%= link_to new_user_session_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-right-to-bracket"></i>
+            <i class="fa-solid fa-right-to-bracket fa-2xl"></i>
           <% end %> 
         <% end %>
       </ul>
     </nav> 
- </footer>
-</div>
+  </div>
+</footer>
  

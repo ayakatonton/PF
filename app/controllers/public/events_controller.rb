@@ -1,7 +1,8 @@
 class Public::EventsController < ApplicationController
+  
   def index
-    start_date = params.fetch(:start_date, Date.today).to_date
-      @events = event.where('start_time <= ? AND (end_time >= ? OR end_time IS NULL)', start_date.end_of_month.end_of_week, start_date.beginning_of_month.beginning_of_week)
+    @events = Event.all
+    @event = Event.new
   end
 
   def show
@@ -13,31 +14,34 @@ class Public::EventsController < ApplicationController
   end
   
   def create
-    event = event.new(event_params)
-      if event.save
-          redirect_to :action => "index"
-      else
-          redirect_to :action => "new"
-      end
+     @event = Event.new(event_params)
+    if @event.save
+      redirect_to events_path, notice: '予定を追加しました'
+    else
+      render :index
+    end
   end
 
   def edit
-    @event = event.find(params[:id])
+    @event = Event.find(params[:id])
   end
   
   def update
-      event = event.find(params[:id])
-      if event.update(event_params)
-          redirect_to :action => "show", :id => event.id
-      else
-          redirect_to :action => "new"
-      end
+     @event= Event.find(params[:id])
+  
+    if @event.update(event_params)  
+    flash[:notice] = "更新されました！"
+    redirect_to public_calendar_index_path
+    else 
+    render :edit
+    end
   end
   
   def destroy
-      event = event.find(params[:id])
+      event = Event.find(params[:id])
       event.destroy
       redirect_to action: :index
+  end
   
    private
   def event_params

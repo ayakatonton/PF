@@ -35,6 +35,17 @@
     display: none !important; 
   }
 }
+ /*位置*/
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 
 /*ヘッダー*/
 header {
@@ -42,33 +53,46 @@ header {
   color: #fff; /* テキストの色 */
   padding: 10px; /* 内側の余白 */
 }
+
 /*フッター*/
 footer {
+  position: sticky;
+  top: 100vh;
   background-color: #dc8ba7; /* 背景色 */
   color: #fff; /* テキストの色 */
-  padding: 10px; /* 内側の余白 */
   margin-top: 20px; /* 上部の余白 */
 }
 
-nav ul {
+ul {
   display: flex; /* 横並びにする */
   list-style: none; /* マーカーを削除 */
   padding: 0;
+  margin: 0!important;
+}
+nav {
+  display: flex !important; /* 横並びにする */
+  justify-content:space-between;
 }
 
+/*真ん中揃え*/
+.center {
+  display:block;
+  margin: 0 auto;
+}
 /*普通のボタン*/
 .btn-stitch {
   display: inline-block;
-  padding: 0.5em 1em;
-  text-decoration: none;
+  padding: 0.3em 1em;
+  text-decoration: none!important;
   background: #668ad8;
   color: #FFF;
   border-radius: 4px;
   box-shadow: 0px 0px 0px 5px #668ad8;
   border: dashed 1px #FFF;
   overflow: hidden;
+  margin-top: 20px;
+  margin-left: 5px;
 }
-
 .btn-stitch:hover {
   border: dotted 1px #FFF;
 }
@@ -84,3 +108,30 @@ nav ul {
   border: dashed 1px #FFF;
   overflow: hidden;
 }
+
+.bo1 {
+  margin-left: 30px;
+}
+
+.mi {
+font-size: 1.2em;/* フォントサイズ */
+font-weight: bold;/* フォント太さ */
+padding: 0.5em 1em;
+margin-bottom: 2em;
+margin-top: 1em;
+position: relative;
+background-color: #f0d8e8;/* 背景色 */
+box-shadow: 0px 0px 0px 5px #f0d8e8;
+border: dashed 2px #ffffff;/* 破線 */
+color:#000000;/* フォント色 */
+text-align: center; /* 水平方向の中央揃え */
+display: flex;
+justify-content: center; /* 要素内の内容を中央に配置 */
+align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
+}
+
+.calendar-container {
+  width: 100%; /* 任意の幅 */
+  height: 10px; /* 任意の高さ */
+}
+

@@ -1,2 +1,13 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<p class="mi">イベント編集</p>
+  <div id="calendar"></div>
+  <!--予定作成フォーム-->
+    <%= simple_form_for event.new do |f| %>
+      <%= f.input :title %>
+      <%= f.input :start_time, as: :datetime_picker %>
+      <%= f.input :end_time, as: :datetime_picker %>
+      <%= f.button :submit %>
+    <% end %>
+  
+  <a href="<%= public_calendar_index_path%>" class="btn-stitch">イベント追加</a>
+  <!--更新も-->
+  <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>

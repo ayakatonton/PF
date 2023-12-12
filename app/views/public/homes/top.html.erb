@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+<!--ログインしてしている時-->
+      <% if user_signed_in? %> 
+        <a href="groups" class="btn-stitch">グループ作成</a>
+        <a href="photos" class="btn-stitch">アルバム一覧</a>
+        <a href="user" class="btn-stitch">マイ編集</a>
+        <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
+<!--していない時-->
+      <% else %>
+        <a href="about" class="btn-stitch">about</a>
+        <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
+        <a href="<%= new_user_session_path %>" class="btn-stitch">Log in</a>
+        <a href="<%= new_user_registration_path %>" class="btn-stitch">Sign up</a>
+      <% end %>
+  </div>
+</div>
+

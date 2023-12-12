@@ -1,62 +1,64 @@
 <div class="pc">
   <header>
     <nav>
-      <ul>
       <!-- アイコン -->
         <% if user_signed_in? %>
-          <div class="mr-auto">
+          <div>
             <%= link_to user_path(current_user) do %>
               <%= image_tag current_user.get_profile_image(60,60), class: "rounded-icon" %>
             <% end %>
           </div>
         <!--個人のアイコン-->
         <% else %>
+        <div>
           <%= image_tag  "no_image.jpg", class: "rounded-icon",size:"60x60" %>
+        </div>
         <% end %>
     
+      <ul>
           <!-- ナビゲーションアイテム -->
         <!--ログインしている時ユーザー-->
         <% if user_signed_in? %>
           <%= link_to root_path(current_user), class:"nav-link text-light" do %>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house fa-lg"></i>
           <% end %>
           <%= link_to public_calendar_index_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-calendar-days"></i>
+            <i class="fa-solid fa-calendar-days fa-lg"></i>
           <% end %>
           <%= link_to groups_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-users"></i>
+            <i class="fa-solid fa-users fa-lg"></i>
           <% end %>
           <%= link_to event_bookmarks_index_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-calendar-check"></i>
+            <i class="fa-solid fa-calendar-check fa-lg"></i>
           <% end %>
       <!--アドミンがログインしてる時 -->
         <% elsif admin_signed_in? %>
           <%= link_to root_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house fa-lg"></i>
           <% end %>
           <%= link_to users_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-tag"></i>
+            <i class="fa-solid fa-tag fa-lg"></i>
           <% end %>
           <%= link_to photos_path, class:"nav-link text-light" do %>
-            <i class="fa-regular fa-image"></i>
+            <i class="fa-regular fa-image fa-lg"></i>
           <% end %>
           <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-right-from-bracket"></i>
+            <i class="fa-solid fa-right-from-bracket fa-lg"></i>
           <% end %> 
           
           <!--ログインしていない時  -->
         <% else %>
           <%= link_to root_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house fa-lg"></i>
           <% end %>
           <%= link_to public_calendar_index_path, class:"nav-link text-light" do %>
-            <i class="fa-regular fa-calendar-check"></i>
+            <i class="fa-regular fa-calendar-check fa-lg"></i>
           <% end %>
           <%= link_to about_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-tag"></i>
+            <i class="fa-solid fa-tag fa-lg"></i>
           <% end %>
           <%= link_to new_user_session_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-right-to-bracket"></i>
+            <i class="fa-solid fa-right-to-bracket fa-lg"></i>
           <% end %> 
         <% end %>
       </ul>
@@ -72,15 +74,14 @@
         <% if user_signed_in? %>
           <div class="mr-auto">
             <%= link_to user_path(current_user) do %>
-              <%= image_tag current_user.get_profile_image(60,60), class: "rounded-icon" %>
+              <%= image_tag current_user.get_profile_image(40,40), class: "rounded-icon" %>
             <% end %>
           </div>
-        <!--個人のアイコン-->
         <% else %>
-          <%= image_tag  "no_image.jpg", class: "rounded-icon",size:"60x60" %>
+          <%= image_tag  "no_image.jpg", class: "rounded-icon",size:"40x40" %>
         <% end %>
-        
-        <%= image_tag  "logo.jpg",size:"155x45" %> 
+        <!--ロゴ  -->
+        <%= image_tag  "logo.jpg",size:"145x40", class:"center" %>  
       </ul>
     </nav>
   </header>

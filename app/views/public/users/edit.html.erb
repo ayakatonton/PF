@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
      
-      <h2>プロフィール編集</h2>
+      <p class="mi">プロフィール編集</p>
   <!--バリテーション-->
       <% if @user.errors.any? %>
         <%= @user.errors.count %> error prohibited this obj from being saved: 
@@ -30,13 +30,12 @@
           <%= f.label :Introduction, "ひとこと" %>
           <%= f.text_area :introduction, class: "form-control" %>
         </div>
-        
-        <div>
-          <%= link_to edit_user_path(@user), method: :get, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-folder-plus"></i> 更新
-          <% end %>
-        </div>
+        <div class="text-right">
+        <%= f.submit "更新", class: "btn-stitch" %>
+        </br>
+        <!--%= link_to "退会する",user_path, class: "btn-stitch" %>-->
       <% end %>
+      </div>
     </div>
   </div>
 </div>
