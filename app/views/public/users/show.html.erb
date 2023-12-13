@@ -1,22 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-11 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-2">
+      <p class="mi">プロフィール</p>
       <%= image_tag @user.get_profile_image(100,100) %>
       <table class="table">
         <tbody>
           <tr>
-            <th>name</th>
+            <th>なまえ</th>
             <td><%= @user.name %></td>
           </tr>
           <tr>
-            <th>introduction</th>
+            <th>ひとこと</th>
             <td><%= @user.introduction %></td>
           </tr>
         </tbody>
       </table>
+      <div class="text-right">
+        <nav>
+         <%= link_to "Log out" , destroy_user_session_path, method: :delete, class:"btn-stitch" %>
         <a href="<%= edit_user_path %>" class="btn-stitch">編集</a>
-        <br>
-        <a href="<%= destroy_user_session_path%>" class="btn-stitch">ログアウト</a>
+        </nav>
+      </div>
     </div>
   </div>
 </div>

@@ -1,13 +1,21 @@
-<p class="mi">イベント編集</p>
-  <div id="calendar"></div>
-  <!--予定作成フォーム-->
-    <%= simple_form_for event.new do |f| %>
-      <%= f.input :title %>
-      <%= f.input :start_time, as: :datetime_picker %>
-      <%= f.input :end_time, as: :datetime_picker %>
-      <%= f.button :submit %>
-    <% end %>
-  
-  <a href="<%= public_calendar_index_path%>" class="btn-stitch">イベント追加</a>
-  <!--更新も-->
-  <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 mx-auto ">
+      <p class="mi">イベント編集</p>
+      
+      <!--予定作成フォーム-->
+      <p>イベント名</p>
+      <%= form_with model: Event.new do |f| %>
+        <%= f.text_field :title %>
+        <%= f.date_field :event_date, as: :datetime_picker %>
+        <%= f.time_field :start_time, as: :datetime_picker %>
+        <%= f.time_field :end_time, as: :datetime_picker %>
+        <%= f.button "予定追加",class:"btn-stitch" %>
+      <% end %>
+        <br>
+      <p>グループ</p>
+      
+      <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>
+    </div>
+  </div>
+</div>

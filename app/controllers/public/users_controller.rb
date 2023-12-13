@@ -29,6 +29,17 @@ class Public::UsersController < ApplicationController
       render :edit
     end
   end
+ 
+  def withdrawal
+    @user = current_user
+    if @user.update(is_active: false)
+      sign_out @user
+      flash[:notice] = "退会しました"
+      redirect_to root_path
+    else
+      render :confirm
+    end
+  end
   
   private
   def user_params

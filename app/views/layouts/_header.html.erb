@@ -68,7 +68,6 @@
 
 <div class="su">
   <header>
-   
     <ul>
       <!-- アイコン -->
         <% if user_signed_in? %>
@@ -77,13 +76,14 @@
               <%= image_tag current_user.get_profile_image(40,40), class: "rounded-icon" %>
             <% end %>
           </div>
-        <nav>
+      
         <% else %>
           <%= image_tag  "no_image.jpg", class: "rounded-icon",size:"40x40" %>
         <% end %>
+  
         <!--ロゴ  -->
-        <%= image_tag  "logo.jpg",size:"145x40", class:"center" %>  
-      </nav>
+        <%= image_tag  "logo.jpg",size:"145x40" , style:"margin: auto" %>  
+   
     </ul>
   </header>
 </div>

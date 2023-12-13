@@ -9,7 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
-+ *= require simple_calendar
+ * require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -83,6 +83,11 @@ li{
   display:block;
   margin: 0 auto;
 }
+.left {
+  display: flex;
+  justify-content: flex-end;/*右寄せで配置*/
+  margin-right: 50px;
+}
 
 /*普通のボタン*/
 .btn-stitch {
@@ -91,12 +96,13 @@ li{
   text-decoration: none!important;
   background: #668ad8;
   color: #FFF;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0px 0px 0px 5px #668ad8;
   border: dashed 1px #FFF;
   overflow: hidden;
   margin-top: 20px;
   margin-left: 5px;
+  margin-right: 5px;
 }
 .btn-stitch:hover {
   border: dotted 1px #FFF;
@@ -117,13 +123,13 @@ li{
 .bo1 {
   margin-left: 30px;
 }
-
+// 吹き出し
 .mi {
-font-size: 1.2em;/* フォントサイズ */
+font-size: 1.1em;/* フォントサイズ */
 font-weight: bold;/* フォント太さ */
-padding: 0.5em 1em;
-margin-bottom: 2em;
-margin-top: 1em;
+padding: 0.5em 0.5em;
+margin-bottom: 0.5em;
+margin-top: 0.5em;
 position: relative;
 background-color: #f0d8e8;/* 背景色 */
 box-shadow: 0px 0px 0px 5px #f0d8e8;
@@ -134,6 +140,5 @@ display: flex;
 justify-content: center; /* 要素内の内容を中央に配置 */
 align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
 }
-
 
 

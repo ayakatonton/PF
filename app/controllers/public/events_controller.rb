@@ -18,6 +18,7 @@ class Public::EventsController < ApplicationController
     if @event.save
       redirect_to events_path, notice: '予定を追加しました'
     else
+     puts @event.errors.full_messages
       render :index
     end
   end
@@ -45,7 +46,7 @@ class Public::EventsController < ApplicationController
   
    private
   def event_params
-      params.require(:event).permit(:title,:start_time,:end_time)
+      params.require(:event).permit(:title,:start_time,:end_time,:event_date,:event_date)
   end
   
 end

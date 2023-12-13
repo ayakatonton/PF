@@ -4,7 +4,7 @@
     <p class="mi">ある日の１ページ</p>
       
       <div class="pc">
-      <nav>
+        <nav>
   <!--ログインしてしている時-->
         <% if user_signed_in? %> 
           <a href="groups" class="btn-stitch">グループ作成</a>
@@ -19,12 +19,13 @@
           <a href="<%= new_user_registration_path %>" class="btn-stitch">Sign up</a>
         <% end %>
         </nav>
+        <%= image_tag  "kesiki.png",size:"190x120", class:"center"  %>
       </div>
       
       <div class="su">
          <!--ログインしてしている時-->
-        <nav>
         <% if user_signed_in? %> 
+        <nav>
           <a href="groups" class="btn-stitch">グループ作成</a>
           <a href="photos" class="btn-stitch">アルバム一覧</a>
         </nav>
@@ -34,8 +35,8 @@
           <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
         </nav>
   <!--していない時-->
-        <nav>
         <% else %>
+        <nav>
           <a href="about" class="btn-stitch">about</a>
           <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
         </nav>
@@ -43,9 +44,9 @@
         <nav>
           <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
           <a href="<%= new_user_registration_path %>" class="btn-stitch">Sign up</a>
-        <% end %>
         </nav>
-      
+        <% end %>
+      <%= image_tag  "kesiki.png",size:"240x200", class:"center"  %>
       </div>
     </div>
   </div>

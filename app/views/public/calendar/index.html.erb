@@ -1,7 +1,11 @@
+<!--カレンダーのページ-->
 <div class="calendar-container">
+<p class="mi">カレンダー</p>
   <%= month_calendar do |date| %>
     <%= date.day %>
   <% end %>
-<a href="<%= events_path%>" class="btn-circle-stitch">＋</a>
+  <div class="left">
+    <a href="<%= events_path%>" class="btn-stitch">＋</a>
+  </div>
 </div>
 <!--%= calendar_for @events %>-->

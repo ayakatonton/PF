@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   namespace :public do
     get 'calendar/index'
     resources :sessions, only: [:new, :create, :destroy]
+    resources :groups, only:  [:new, :index, :show, :create, :edit, :update] do
+      resource :group_users, only: [:create, :destroy]
+    end
   end
   
-  resources :groups, only:  [:new, :index, :show, :create, :edit, :update] do
-    resource :group_users, only: [:create, :destroy]
-  end
   
   scope module: :public do
     root 'homes#top'
@@ -29,7 +29,9 @@ Rails.application.routes.draw do
     get 'photo_bookmarks/new'
     get 'photo_bookmarks/edit'
    
-    resources :users
+    resources :users do
+      patch :withdrawal
+    end
     resources :groups
     resources :events
     resources :photos
