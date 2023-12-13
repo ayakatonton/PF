@@ -71,6 +71,10 @@ ul {
 }
 nav {
   display: flex !important; /* 横並びにする */
+  justify-content:space-around;
+}
+li{
+  display: flex; /* 横並びにする */
   justify-content:space-between;
 }
 
@@ -79,6 +83,7 @@ nav {
   display:block;
   margin: 0 auto;
 }
+
 /*普通のボタン*/
 .btn-stitch {
   display: inline-block;
@@ -130,8 +135,5 @@ justify-content: center; /* 要素内の内容を中央に配置 */
 align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
 }
 
-.calendar-container {
-  width: 100%; /* 任意の幅 */
-  height: 10px; /* 任意の高さ */
-}
+
 

@@ -1,6 +1,6 @@
 <div class="pc">
   <header>
-    <nav>
+    <li>
       <!-- アイコン -->
         <% if user_signed_in? %>
           <div>
@@ -62,14 +62,14 @@
           <% end %> 
         <% end %>
       </ul>
-    </nav>
+    </li>
   </header>
 </div>
 
 <div class="su">
   <header>
-    <nav>
-      <ul>
+   
+    <ul>
       <!-- アイコン -->
         <% if user_signed_in? %>
           <div class="mr-auto">
@@ -77,12 +77,13 @@
               <%= image_tag current_user.get_profile_image(40,40), class: "rounded-icon" %>
             <% end %>
           </div>
+        <nav>
         <% else %>
           <%= image_tag  "no_image.jpg", class: "rounded-icon",size:"40x40" %>
         <% end %>
         <!--ロゴ  -->
         <%= image_tag  "logo.jpg",size:"145x40", class:"center" %>  
-      </ul>
-    </nav>
+      </nav>
+    </ul>
   </header>
 </div>

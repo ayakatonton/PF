@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     get 'calendar/index'
     resources :sessions, only: [:new, :create, :destroy]
   end
-
+  
+  resources :groups, only:  [:new, :index, :show, :create, :edit, :update] do
+    resource :group_users, only: [:create, :destroy]
+  end
+  
   scope module: :public do
     root 'homes#top'
     get 'about'=>"homes#about"
