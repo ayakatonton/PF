@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="text-center"><%= @group.name %></h2>
-  <h4 class="text-center">承認待ち一覧</h4>
+  <p class="mi">承認待ち一覧</p>
 
   <div class="row mt-5">
     <div class="col-11 col-md-12 mx-auto">
@@ -9,16 +9,16 @@
         <table class="table table-hover text-nowrap bg-light">
           <thead class="thead-dark">
             <tr>
-              <th>名前</th>
-              <th>部署</th>
-              <th>役職</th>
+              <th>アイコン</th>
+              <th>なまえ</th>
+              <th>ひとこと</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <% @permits.each do |permit| %>
               <tr>
-                <td><%= link_to permit.user.name, public_user_path(permit.user.id), class: "text-dark" %></td>
+                <td><%= link_to permit.user.name, public_user_path(permit.user.id), class: "btn-stitch" %></td>
                 <td>
                   <% if permit.user.department_id.present? %>
                     <%= permit.user.department.name %>
@@ -26,7 +26,7 @@
                 </td>
                 <td><%= permit.user.position %></td>
                 <td class="text-right">
-                  <%= link_to '加入許可', group_group_users_path(@group, permit_id: permit.id), method: :post, class: "btn btn-sm btn-success" %>
+                  <%= link_to '仲間にいれる', group_group_users_path(@group, permit_id: permit.id), method: :post, class: "btn-stitch" %>
                 </td>
               </tr>
             <% end %>
@@ -34,7 +34,7 @@
         </table>
       </div>
     <% else %>
-      <P class="text-center">承認待ちユーザーはいません。</P>
+      <P class="text-center">承認待ちの友達はいません。</P>
     <% end %>
     </div>
     <div class="mx-auto mt-5"><%= paginate @permits %></div>
@@ -42,7 +42,7 @@
 
   <div class="row mt-5">
     <div class="col-md-9 mx-auto">
-    <p class="text-center"><%= link_to "戻る", group_path(@group), class: 'text-dark font-weight-bold' %></p>
+    <p class="text-center"><%= link_to "戻る", group_path(@group), class: 'btn-stitch' %></p>
     </div>
   </div>
 

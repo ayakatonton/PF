@@ -1,2 +1,17 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<div class='container px-lg-5 px-sm-0'>
+   <div class='row'>
+    <div class='col-lg-10 mx-auto col-sm-12'>
+      <nav>
+      <p class="mi"><%= event.name %></p>
+      <%= link_to "＋", new_photo_path, class: "btn-stitch" %>
+      </nav>
+      <nav>
+      <p class="kase">日付</p>
+      <p class="kase"><%= group.name %></p>
+      </nav>
+      <% @photos.each do |photo| %>
+        <%= image_tag photo.image.url(:medium) %>
+      <% end %>
+    </div>
+  </div>
+</div>

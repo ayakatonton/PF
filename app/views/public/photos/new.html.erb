@@ -1,2 +1,19 @@
-<h1>Photos#new</h1>
-<p>Find me in app/views/photos/new.html.erb</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 mx-auto ">
+      <p class="mi">写真のアップロード</p>
+      <%= form_for @photo, html: { multipart: true } do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      
+        <%= f.file_field :image %>
+      
+        <%= f.submit "写真をシェア", class: "btn-stitch" %>
+      <% end %>
+      <a href="<%=  %>" class="btn-stitch">もどる</a>
+    </div>
+  </div>
+</div>

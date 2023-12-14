@@ -21,6 +21,7 @@
           </td>
           <td><%= link_to group.name,group_path(group) %></td>
           <td><%= link_to "＋", new_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
+           <!--group_permits_path-->
           <td><%= group.introduction %></td>
           <% if group.is_owned_by?(current_user) %>
             <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %>

@@ -140,5 +140,7 @@ display: flex;
 justify-content: center; /* 要素内の内容を中央に配置 */
 align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
 }
-
-
+// 下線
+.kase {
+  border-bottom: 3px dashed #c5a3cd;
+}
