@@ -29,6 +29,7 @@ class Public::GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
+      @group.users << current_user
       redirect_to groups_path, method: :post
     else
       render 'new'
@@ -43,6 +44,22 @@ class Public::GroupsController < ApplicationController
     end
   end
   
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path
+  end
+  
+  def search
+    method = params[:search_method]
+    word = params[:search_word]
+    @group = Group.search(method,word)
+  end
+  
+  def permits
+    @group = Group.find(params[:id])
+    @permits = @group.permits.page(params[:page])
+  end
   
   private
     def group_params
@@ -52,7 +69,7 @@ class Public::GroupsController < ApplicationController
     def ensure_correct_user
       @group = Group.find(params[:id])
       unless @group.owner_id == current_user.id
-        redirect_to groups_path
+        redirect_to groups_path(@group), alert: "グループ制作者のみ編集ができます"
       end
     end
 end

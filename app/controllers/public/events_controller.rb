@@ -3,6 +3,7 @@ class Public::EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
+    @groups = Group.where(user: current_user)
   end
 
   def show
@@ -16,7 +17,7 @@ class Public::EventsController < ApplicationController
   def create
      @event = Event.new(event_params)
     if @event.save
-      redirect_to events_path, notice: '予定を追加しました'
+      redirect_to public_calendar_index_path, notice: '予定を追加しました'
     else
      puts @event.errors.full_messages
       render :index
@@ -46,7 +47,7 @@ class Public::EventsController < ApplicationController
   
    private
   def event_params
-      params.require(:event).permit(:title,:start_time,:end_time,:event_date,:event_date)
+      params.require(:event).permit(:title,:event_date,:group_id)
   end
   
 end

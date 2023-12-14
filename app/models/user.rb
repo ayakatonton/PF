@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :photo_bookmarks
   has_many :event_bookmarks
   has_many :group_users, dependent: :destroy
-  has_many :users, through: :group_users
+  has_many :permits, dependent: :destroy
+  has_many :groups, through: :group_users
   
   # バリテーション
   # validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 20 }

@@ -1,14 +1,10 @@
-<div class='container px-5 px-sm-0'>
+<div class='container px-lg-5 px-sm-0'>
   <%= flash[:notice] %>
   <div class='row'>
-    <div class='col-md-3'>
-      <!--%= render partial: "partial/user_info", locals: { user: @user }%>-->
-      <!--%= render partial: "partial/new_books", locals: { book: @book } %>-->
-    </div>
-
-    <div class='col-9 center '>
-      <p class="mi">なかま</p>
+    <div class='col-lg-10 mx-auto col-sm-12'>
+      <p class="mi">グループ一覧</p>
       <%= render 'index', groups: @groups %>
     </div>
   </div>
 </div>
+

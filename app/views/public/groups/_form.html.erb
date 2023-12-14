@@ -14,9 +14,14 @@
     <%= f.file_field :group_image, class: "form-control-file" , accept: "image/*" %>
   </div>
 
-  <div class="form-group">
-    <left>
-    <%= f.submit "グループ作成", class: 'btn-stitch' %>
-    </left>
-  </div>
+<div class= "row justify-content-between">
+    <div class="form-group text-right col-3">
+    <% if action_name=="edit" %>
+      <%= link_to "削除", group_path(group), method: :delete, class: " btn-stitch" %>
+    <% end %>
+    </div>
+    <div class="form-group text-right col-3">
+      <%= f.submit button_name, class: 'btn-stitch' %>
+    </div>
+</div>
 <% end %>

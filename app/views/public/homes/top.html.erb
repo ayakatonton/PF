@@ -7,7 +7,7 @@
         <nav>
   <!--ログインしてしている時-->
         <% if user_signed_in? %> 
-          <a href="groups" class="btn-stitch">グループ作成</a>
+          <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
           <a href="photos" class="btn-stitch">アルバム一覧</a>
           <a href="user" class="btn-stitch">マイ編集</a>
           <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
@@ -26,7 +26,7 @@
          <!--ログインしてしている時-->
         <% if user_signed_in? %> 
         <nav>
-          <a href="groups" class="btn-stitch">グループ作成</a>
+          <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
           <a href="photos" class="btn-stitch">アルバム一覧</a>
         </nav>
         <br>
