@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   namespace :public do
     get 'calendar/index'
     resources :sessions, only: [:new, :create, :destroy]
-    resources :groups, only:  [:new, :index, :show, :create, :edit, :update, :destroy] do
-      resource :permits, only: [:create, :destroy]
+    resources :groups do
+      resources :permits, only: [:create, :destroy, :index, :edit]
       resource :group_users, only: [:create, :destroy]
     end
   end
-  get "groups/:id/permits" => "groups#permits", as: :permits
+
   
   scope module: :public do
     root 'homes#top'

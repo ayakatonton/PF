@@ -1,5 +1,6 @@
 class Public::PhotosController < ApplicationController
   def index
+    @photo = Photo.all
   end
 
   def show

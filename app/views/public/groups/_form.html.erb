@@ -16,9 +16,11 @@
 
 <div class= "row justify-content-between">
     <div class="form-group text-right col-3">
-    <% if action_name=="edit" %>
-      <%= link_to "削除", group_path(group), method: :delete, class: " btn-stitch" %>
-    <% end %>
+      <% if group.is_owned_by?(current_user) %>
+        <% if action_name=="edit" %>
+          <%= link_to "削除", group_path(group), method: :delete, class: " btn-stitch" %>
+        <% end %>
+      <% end %>
     </div>
     <div class="form-group text-right col-3">
       <%= f.submit button_name, class: 'btn-stitch' %>

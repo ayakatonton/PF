@@ -1,2 +1,13 @@
-<h1>Photos#edit</h1>
-<p>Find me in app/views/photos/edit.html.erb</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 mx-auto ">
+    <p class="mi">選択写真</p>
+   
+    <%= image_tag @photo.image.url %>
+    
+    <!-- 写真の削除 -->
+    <%= link_to '写真を削除する', photo_path(@photo), method: :delete,class: " btn-stitch", data: { confirm: '本当に削除しますか？' } %>
+    <%= link_to '戻る', photo_path(@photo), class: " btn-stitch" %>
+    </div>
+  </div>
+</div>

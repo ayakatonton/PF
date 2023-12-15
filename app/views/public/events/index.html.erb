@@ -1,20 +1,25 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-10 mx-auto ">
-      <p class="mi">イベント編集</p>
-      
-      <!--予定作成フォーム-->
-      <p>イベント名</p>
-      <%= form_with model: Event.new do |f| %>
-        <%= f.text_field :title %>
-        <%= f.date_field :event_date, as: :datetime_picker %>
-      <p>グループ</p>
-        <%= f.select :group_id, current_user.groups.map{|group| [group[:name], group[:id]]}, {}, {class: 'custom-select'} %>
-        <%= f.button "予定追加",class:"btn-stitch" %>
-      <% end %>
-        <br>
-      
-      <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>
+<div class='container px-lg-5 px-sm-0'>
+   <div class='row'>
+    <div class='col-lg-10 mx-auto col-sm-12'>
+      <p class="mi">予定一覧</p>
+        <p class="kase"><%= group.name %></p>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>日にち</th>
+              <th></th>
+              <th>予定名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @events.each do |event| %>
+            <tr>
+              <td>日付</td>
+              <td><%= event.name %></td>
+           <% end %>
+            </tr>
+          </tbody>
+        </table> 
     </div>
   </div>
 </div>

@@ -1,6 +1,9 @@
 <!--グル検索-->
-<%= form_tag(posts_search_path , method: :get) do %>
-    <%= select(@search_content, :search_method, ["完全一致","perfect_match"])%>
-    <%= text_field(@search_content, :search_word)%>
-    <%= submit_tag "検索" %>
-<% end %>
+
+<div>
+    <%= form_tag(posts_search_path , method: :get) do %>
+        <%= select(@search_content, :search_method, ["完全一致","perfect_match"])%>
+        <%= text_field(@search_content, :search_word)%>
+        <%= submit_tag "検索" %>
+    <% end %>
+</div>
