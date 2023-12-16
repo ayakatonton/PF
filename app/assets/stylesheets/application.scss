@@ -22,6 +22,13 @@
   border-radius: 50%;
 }
 
+// 背景色css
+body {
+  background-color: #fef4f4;
+  position: relative;
+  min-height: 100vh;
+}
+
 /* pcサイズの場合のみ表示 */
 @media only screen and (max-width: 768px) {
   .pc{
@@ -143,4 +150,8 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
 // 下線
 .kase {
   border-bottom: 3px dashed #c5a3cd;
+}
+
+.b-image {
+  background-position: center;
 }

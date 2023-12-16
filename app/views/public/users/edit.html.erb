@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-11 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-     
       <p class="mi">プロフィール編集</p>
+     <div class="b-image"><%= image_tag  "rabya.png", size:"100x100" %></div>
   <!--バリテーション-->
       <% if @user.errors.any? %>
         <%= @user.errors.count %> error prohibited this obj from being saved: 
@@ -37,6 +37,7 @@
         </nav>
       <% end %>
       </div>
+      <div class="b-image"><%= image_tag  "abela.png", size:"100x100" %></div>
     </div>
   </div>
 </div>

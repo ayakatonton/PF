@@ -4,10 +4,10 @@
     <%= month_calendar do |date| %>
       <%= date.day %>
         <% @events.each do |event| %>
-          <% if event.date == date %>
-          <%= event.name %>
+          <% if event.event_date_date == date %>
+            <%= event.title %>
+          <% end %>
         <% end %>
-      <% end %>
     <% end %>
     <div class="left">
       <% if event.event_date == date %>
