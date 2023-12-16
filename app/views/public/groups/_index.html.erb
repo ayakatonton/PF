@@ -4,6 +4,7 @@
       <tr>
         <th style="width: 10%"></th>
         <th style="width: 20%">グループ名</th>
+        <th style="width: 5%"></th>
         <th style="width: 50%">ひとこと</th>
         <th style="width: 15%"></th>
       </tr>
@@ -19,7 +20,7 @@
             <% end %>
           </td>
           <td><%= link_to group.name,group_path(group) %></td>
-           <!--group_permits_path-->
+          <td><%= link_to '＋',public_group_permits_path(group), class: " btn-stitch" %></td>
           <td><%= group.introduction %></td>
           <!--% if group.is_owned_by?(current_user) %>-->
             <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %>
@@ -50,8 +51,8 @@
           <% end %>
         </td>
         <td><%= link_to group.name,group_path(group) %></td>
-        <!--% if group.is_owned_by?(current_user) %>-->
-          <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
+        <td><%= link_to '＋',public_group_permits_path(group), class: " btn-stitch" %></td>
+        <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
         <!--% end %>-->
       </tr>
       <tr>

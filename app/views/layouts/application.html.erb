@@ -25,6 +25,9 @@
   </head>
     <body>
         <%= render 'layouts/header' %>
+        <% if flash[:notice].present? %>
+          <p><%= flash[:notice] %></p>
+        <% end %>
         <%= yield %>
         <%= render 'layouts/footer' %>
     </body>

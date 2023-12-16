@@ -1,0 +1,22 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-11 mx-auto ">
+        <p class="mi">グループ検索</p>
+        <h6>グループ名が完全一致の場合のみ</h6>
+        <h6>グループ詳細ボタンが表示されます</h6>
+        <br></br>
+        
+        <%= form_tag(search_public_groups_path,method: :get) do %>
+            <%#= select(@search_content, :search_method, ["完全一致","perfect_match"])%>
+            <%= text_field(@search_content, :search_word)%>
+            <%= submit_tag "検索", class: "btn-stitch" %>
+        <% end %>
+        <br></br>
+        <% if @group.present? %>
+        <%p @group%>
+            <%= link_to "#{@group.name}のグループ詳細へ", public_group_permits_path(@group), class: "btn-stitch" %>
+        <% end %>
+       
+   </div>
+  </div>
+</div>

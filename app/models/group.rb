@@ -6,7 +6,7 @@ class Group < ApplicationRecord
   has_many :events
   has_many :photos
  
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :introduction, presence: true
   has_one_attached :group_image
   
@@ -14,11 +14,15 @@ class Group < ApplicationRecord
     (image.attached?) ? image : 'no_image.jpg'
   end
   
-  # def includesUser?(user)
-  #   group_users.exists?(user_id: user.id)
-  # end
+  def includesUser?(user)
+    group_users.exists?(user_id: user.id)
+  end
   def is_owned_by?(user)
-    owner.id == user.id
+    owner_id == user.id
+  end
+  
+  def has_permits?(user)
+    permits.exists?(user_id: user.id)
   end
   
   def self.search(method, word)

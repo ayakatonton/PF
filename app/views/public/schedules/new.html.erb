@@ -1,2 +1,19 @@
-<h1>Schedules#new</h1>
-<p>Find me in app/views/schedules/new.html.erb</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 mx-auto ">
+      <p class="mi">日付<%= group.name %></p>
+      
+      <!--予定作成フォーム-->
+      <p><%= schedule.name %></p>
+        <%= form_with model :Schedule .new do |f| %>
+          <%= f.date_field :event_time, as: :datetime_picker %>
+          <%= f.date_field :event_time, as: :datetime_picker %>
+       
+          <%= f.button "予定追加",class:"btn-stitch" %>
+        <% end %>
+        <br>
+      
+      <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>
+    </div>
+  </div>
+</div>

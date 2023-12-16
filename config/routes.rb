@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     get 'calendar/index'
     resources :sessions, only: [:new, :create, :destroy]
     resources :groups do
-      resources :permits, only: [:create, :destroy, :index, :edit]
+      get  'search',on: :collection
       resource :group_users, only: [:create, :destroy]
+      resource :permits, only: [:create, :destroy, :show]
     end
   end
 

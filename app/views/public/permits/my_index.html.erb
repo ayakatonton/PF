@@ -1,0 +1,13 @@
+    <% if @group.owner_id == current_user.id %>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-secondary dropdown-toggle"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+        
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <%# permit = Permit.where(group_id: group.id, user_id: current_use.id) %>
+          <%#= link_to "edit", edit_public_group_permit_path(@group, permit),  class: "btn-stitch" %> 
+        </div>
+      </div>
+    <% end %>

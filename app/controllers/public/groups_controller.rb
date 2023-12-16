@@ -6,7 +6,7 @@ class Public::GroupsController < ApplicationController
     @photo = Photo.new
     @schedule = Schedule.new
     @event = Event.new
-    @groups = Group.all
+    @groups = Group.joins(:group_users).where(group_users: { user_id: current_user.id })
     @user = User.find(current_user.id)
   end
 
@@ -51,9 +51,12 @@ class Public::GroupsController < ApplicationController
   end
   
   def search
-    method = params[:search_method]
+    #method = params[:search_method]
     word = params[:search_word]
-    @group = Group.search(method,word)
+    if word.present?
+      @group = Group.find_by(name:word)
+    end
+
   end
   
   def permits
@@ -68,7 +71,7 @@ class Public::GroupsController < ApplicationController
   
     def ensure_correct_user
       @group = Group.find(params[:id])
-      unless @group.owner_id == current_user.id
+      if @group.owner_id != current_user.id && !@group.group_users.exists?(user_id: current_user.id)
         redirect_to groups_path(@group), alert: "グループのみ編集ができます"
       end
     end
