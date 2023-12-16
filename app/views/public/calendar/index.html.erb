@@ -1,11 +1,16 @@
 <!--カレンダーのページ-->
 <div class="calendar-container">
-<p class="mi">カレンダー</p>
-  <%= month_calendar do |date| %>
-    <%= date.day %>
-  <% end %>
-  <div class="left">
-    <a href="<%= edit_events_path(events)%>" class="btn-stitch">＋</a>
-  </div>
+  <p class="mi">カレンダー</p>
+    <%= month_calendar do |date| %>
+      <%= date.day %>
+        <% @events.each do |event| %>
+          <% if event.date == date %>
+          <%= event.name %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class="left">
+      <% if event.event_date == date %>
+      <% end %>
+    </div>
 </div>
-<!--%= calendar_for @events %>-->
