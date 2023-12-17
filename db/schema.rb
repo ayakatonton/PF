@@ -103,8 +103,13 @@ ActiveRecord::Schema.define(version: 2023_12_14_165800) do
   end
 
   create_table "schedules", force: :cascade do |t|
+    t.string "title"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_schedules_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -126,4 +131,5 @@ ActiveRecord::Schema.define(version: 2023_12_14_165800) do
   add_foreign_key "group_users", "users"
   add_foreign_key "permits", "groups"
   add_foreign_key "permits", "users"
+  add_foreign_key "schedules", "events"
 end

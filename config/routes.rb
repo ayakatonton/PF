@@ -35,7 +35,9 @@ Rails.application.routes.draw do
       patch :withdrawal
     end
     resources :groups
-    resources :events
+    resources :events do
+      resources :schedules
+    end
     resources :photos
   end
   

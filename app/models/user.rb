@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   
   # バリテーション
-  # validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 20 }
+  validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 20 }
 # validates :introduction, length: { maximum: 100 }   
    
   def get_profile_image(width, height)

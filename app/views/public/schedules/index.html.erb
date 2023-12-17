@@ -1,12 +1,12 @@
 <div class='container px-lg-5 px-sm-0'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi"><%= event.name %></p>
+      <p class="mi"><%= @event.name %></p>
       <nav>
-        <p class="kase">日付</p>
-        <!--日付。name-->
-        <p class="kase"><%= group.name %></p>
+        <p class="kase"><%= @event.event_date %></p>
+        <p class="kase"><%= @event.group.name %></p>
        </nav>
+      <% if @schedule(schedule).permits.present? %>
         <table class='table'>
           <thead>
             <tr>
@@ -17,18 +17,22 @@
             </tr>
           </thead>
           <tbody>
-            <% @events.each do |event| %>
+            <% @schedule.each do |schedule| %>
             <tr>
              <!--statttime-->
              <!--enndo-->
               <td></td>
               <td></td>
-              <td> <%= event.name %></td>
+              <td> <%#= link_to schedule.name, スケジュールのedit%>
+              </td>
             <% end %>
             </tr>
         </tbody>
       </table> 
-      <a href="<%= photo_path %>" class="btn-stitch">アルバム</a>
+      <% else %>
+        <P class="text-center">スケジュールがありません</P>
+      <% end %>
+      <a href="<%= new_schedule_path %>" class="btn-stitch">＋</a><!-- 新しい予定を作成するリンク -->
     </div>
   </div>
 </div>

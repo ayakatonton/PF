@@ -4,13 +4,10 @@
     <%= month_calendar do |date| %>
       <%= date.day %>
         <% @events.each do |event| %>
-          <% if event.event_date_date == date %>
-            <%= event.title %>
+          <% if event.event_date == date %>
+           <%= link_to  event.title, event_path(event) %>
           <% end %>
         <% end %>
     <% end %>
-    <div class="left">
-      <% if event.event_date == date %>
-      <% end %>
-    </div>
 </div>
+<a href="<%= new_event_path %>" class="btn-stitch">＋</a> <!-- 新しいイベントを作成するリンク -->

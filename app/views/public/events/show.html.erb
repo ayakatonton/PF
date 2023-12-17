@@ -1,0 +1,38 @@
+<div class='container px-lg-5 px-sm-0'>
+   <div class='row'>
+    <div class='col-lg-10 mx-auto col-sm-12'>
+      <p class="mi"><%= @event.title %></p>
+      <nav>
+        <p class="kase"><%= @event.event_date %></p>
+        <p class="kase"><%= @event.group.name %></p>
+       </nav>
+      <% if @event.schedules.present? %>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th　style="width: 20%">開始時間</th>
+              <th　style="width: 20%">終了時間</th>
+              <th　style="width: 10%"></th>
+              <th　style="width: 50%">予定名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @event.schedules.each do |schedule| %>
+            <tr>
+             <!--statttime-->
+             <!--enndo-->
+              <td></td>
+              <td><%= schedule.title%></td>
+              <td> <%#= link_to schedule.name, スケジュールのedit%>
+              </td>
+            <% end %>
+            </tr>
+        </tbody>
+      </table> 
+      <% else %>
+        <P class="text-center">スケジュールがありません</P>
+      <% end %>
+      <a href="<%= new_event_schedule_path(@event) %>" class="btn-stitch">＋</a><!-- 新しい予定を作成するリンク -->
+    </div>
+  </div>
+</div>

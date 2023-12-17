@@ -1,19 +1,40 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-10 mx-auto ">
-      <p class="mi">日付<%= group.name %></p>
+    <div class="col-md-10 mx-auto text-center ">
+      <p class="mi"><%= @event.event_date %><%= @event.group.name %></p>
       
       <!--予定作成フォーム-->
-      <p><%= schedule.name %></p>
-        <%= form_with model :Schedule .new do |f| %>
-          <%= f.date_field :event_time, as: :datetime_picker %>
-          <%= f.date_field :event_time, as: :datetime_picker %>
-       
+      <p class="kase"><%= @event.title %></p>
+      <%= form_with model: @schedule ,url: event_schedules_path(@event) do |f| %>
+      <div class="row">
+        <div class="col-12">
+          <%= f.label :title, "予定"%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= f.text_field :title, class:'form-control mb-3', required: true, placeholder: "予定を入力" %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <%= f.time_field :start_time, class: "w-100" %>
+        </div>
+        <div class="col-6">
+          <%= f.time_field :end_timee, class: "w-100"  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <a href="<%= events_path(group_id: @event.group)%>" class="btn-stitch">戻る</a>
+        </div>
+        <div class="col-6">
           <%= f.button "予定追加",class:"btn-stitch" %>
-        <% end %>
-        <br>
-      
-      <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+<!--全体的に直す-->

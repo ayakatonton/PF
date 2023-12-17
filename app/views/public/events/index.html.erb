@@ -1,25 +1,35 @@
 <div class='container px-lg-5 px-sm-0'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi">予定一覧</p>
-        <p class="kase"><%= group.name %></p>
+      <p class="mi">イベント一覧</p>
+        <p class="kase">
+          <% if @group.present? %>
+            <%= @group.name %>
+          <% else %>
+
+          <% end %>
+        </p>
         <table class='table'>
           <thead>
             <tr>
               <th>日にち</th>
               <th></th>
-              <th>予定名</th>
+              <th>イベント名</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <% @events.each do |event| %>
             <tr>
-              <td>日付</td>
-              <td><%= event.name %></td>
-           <% end %>
+              <td><%= event.event_date %></td>
+              <td><%#= link_to event.name, その日の予定に飛びたい%></td>
+              <th><%= link_to "編集する", edit_event_path(event) , class: "btn-stitch" %></th>
             </tr>
+           <% end %>
           </tbody>
-        </table> 
+        </table>
+      <%= link_to "すべてのイベント", events_path() %>
+      <a href="<%= new_event_path %>" class="btn-stitch">＋</a> <!-- 新しいイベントを作成するリンク -->
     </div>
   </div>
 </div>

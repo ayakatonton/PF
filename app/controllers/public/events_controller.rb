@@ -1,13 +1,18 @@
 class Public::EventsController < ApplicationController
   
   def index
-    @events = Event.all
+    if params[:group_id].present?
+      @group = Group.find(params[:group_id])
+      @events = Event.where(group_id: params[:group_id] )
+    else
+      @events = Event.all
+    end
     @event = Event.new
     @groups = Group.where(user: current_user)
   end
 
   def show
-     @event = event.find(params[:id])
+     @event = Event.find(params[:id])
   end
 
   def new

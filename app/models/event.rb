@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :group
+  has_many :schedules
+  
+  validates :name, presence: true
  
   default_scope -> { order(start_time: :asc) }
 

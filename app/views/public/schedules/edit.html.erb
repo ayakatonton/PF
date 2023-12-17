@@ -1,2 +1,20 @@
-<h1>Schedules#edit</h1>
-<p>Find me in app/views/schedules/edit.html.erb</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 mx-auto ">
+      <p class="mi">予定編集</p>
+      
+        <p>イベント名</p>
+       <%= form_with model: @schedule do |f| %>
+          <%= f.text_field :title %>
+          <!--<%= f.date_field :schedule_time, as: :datetime_picker %>わからない-->
+        <p>グループ</p>
+          <%= f.select :group_id, current_user.groups.map{|group| [group[:name], group[:id]]}, {}, {class: 'custom-select'} %>
+          <%= f.button "編集",class:"btn-stitch" %>
+          <%= link_to "削除", schedule_path(@schedule), method: :delete, class: " btn-stitch" %>
+        <% end %>
+        <br>
+      
+      <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>
+    </div>
+  </div>
+</div>
