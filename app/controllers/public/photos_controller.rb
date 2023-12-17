@@ -5,6 +5,7 @@ class Public::PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @event = event = Event.find(params[:id])
   end
 
   def new

@@ -4,7 +4,7 @@
       <p class="mi"><%= @event.event_date %><%= @event.group.name %></p>
       
       <!--予定作成フォーム-->
-      <p class="kase"><%= @event.title %></p>
+     <h3> <p class="kase"><%= @event.title %></p></h3>
       <%= form_with model: @schedule ,url: event_schedules_path(@event) do |f| %>
       <div class="row">
         <div class="col-12">

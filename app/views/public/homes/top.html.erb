@@ -18,7 +18,7 @@
             <a href="about" class="btn-stitch">about</a>
             <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
             <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
-            <a href="<%= new_user_registration_path %>" class="btn-stitch">Sign up</a>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
           <% end %>
           </nav>
           <div class="b-image"><%= image_tag  "kesiki.png", size:"350x400" %></div>
@@ -47,7 +47,7 @@
         <br> 
         <nav>
           <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
-          <a href="<%= new_user_registration_path %>" class="btn-stitch">Sign up</a>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
         </nav>
         <% end %>
       <div class="b-image"><%= image_tag  "kesiki.png",size:"260x350" %></div>

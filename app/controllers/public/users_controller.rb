@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :ensure_guest_user, only: [:edit]
   def index
   end
 
@@ -21,13 +22,13 @@ class Public::UsersController < ApplicationController
   end
   
   def update
+    user = User.find(params[:id])
+  unless user.id == current_user.id
+    redirect_to post_images_path
+  end
     @user=User.find(params[:id])
-    if @user.update(user_params)  
-      flash[:notice] = "You have updated user successfully."
+    @user.update(user_params)  
       redirect_to user_path(@user)
-    else 
-      render :edit
-    end
   end
  
   def withdrawal
@@ -47,8 +48,15 @@ class Public::UsersController < ApplicationController
   end  
   def is_matching_login_user
     user = User.find(params[:id])
-    unless user == current_user
+    unless user.id == current_user.id
       redirect_to user_path(current_user)
     end
   end
+  
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.guest_user?
+      redirect_to user_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    end
+  end  
 end

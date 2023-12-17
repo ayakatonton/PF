@@ -1,6 +1,10 @@
 <!--カレンダーのページ-->
 <div class="calendar-container">
-  <p class="mi">カレンダー</p>
+  <p class="mi">カレンダー
+    <%= link_to new_event_path, class:"btn-stitch ml-5 " do %>
+      <i class="fa-solid fa-calendar-plus"></i>
+    <% end %>
+  </p>
     <%= month_calendar do |date| %>
       <%= date.day %>
         <% @events.each do |event| %>
@@ -10,4 +14,4 @@
         <% end %>
     <% end %>
 </div>
-<a href="<%= new_event_path %>" class="btn-stitch">＋</a> <!-- 新しいイベントを作成するリンク -->
+<!-- 新しいイベントを作成するリンク -->

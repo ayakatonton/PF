@@ -4,6 +4,7 @@
       <p class="mi">アルバム一覧</p>
       <% @photo.each do |photo| %>
         <%= image_tag photo.image.url(:medium) %>
+        <!--写真にeditリンクつけたい-->
       <% end %>
     </div>
   </div>

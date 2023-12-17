@@ -1,12 +1,12 @@
 <div class='container px-lg-5 px-sm-0'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi"><%= @event.name %></p>
+      <p class="mi"><%= @event.title %></p>
       <nav>
         <p class="kase"><%= @event.event_date %></p>
-        <p class="kase"><%= @event.group.name %></p>
+        <p class="kase"><%= @event.title %></p>
        </nav>
-      <% if @schedule(schedule).permits.present? %>
+      <% if @event.schedules.present? %>
         <table class='table'>
           <thead>
             <tr>
@@ -17,22 +17,21 @@
             </tr>
           </thead>
           <tbody>
-            <% @schedule.each do |schedule| %>
+            <% @event.schedules.each do |schedule| %>
             <tr>
-             <!--statttime-->
-             <!--enndo-->
+              <td><%= schedule.start_time %></td>
+              <td><%= schedule.end_time %></td>
               <td></td>
-              <td></td>
-              <td> <%#= link_to schedule.name, スケジュールのedit%>
-              </td>
+              <td><%= link_to schedule.title, edit_event_schedule_path(@event, schedule) %></td>
             <% end %>
             </tr>
         </tbody>
       </table> 
-      <% else %>
-        <P class="text-center">スケジュールがありません</P>
-      <% end %>
-      <a href="<%= new_schedule_path %>" class="btn-stitch">＋</a><!-- 新しい予定を作成するリンク -->
+        <% else %>
+          <P class="text-center">スケジュールがありません</P>
+        <% end %>
+      <%#= link_to "この日の思い出", 写真sho, class: "btn-stitch" %>
+      <%= link_to "すべてのイベント", events_path, class: "btn-stitch" %>
     </div>
   </div>
 </div>

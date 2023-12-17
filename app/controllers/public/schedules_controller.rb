@@ -16,7 +16,8 @@ class Public::SchedulesController < ApplicationController
   end
 
   def edit
-    @schedule = Schedule.find(params[:id])
+     @event = Event.find(params[:event_id]) # :event_idを使用してイベントを見つける
+     @schedule = Schedule.find(params[:id])
   end
   
   def update
@@ -31,7 +32,8 @@ class Public::SchedulesController < ApplicationController
   end
   
   def create
-     @schedule = Schedule.new(schedule_params)
+     @event = Event.find(params[:event_id]) 
+     @schedule = @event.schedules.build(schedule_params)
     if @schedule.save
       redirect_to public_calendar_index_path, notice: '予定を追加しました'
     else

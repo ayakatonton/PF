@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   
   # バリテーション
-  validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 20 }
-# validates :introduction, length: { maximum: 100 }   
+  validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 15 }
+  validates :introduction, length: { maximum: 50 }   
    
   def get_profile_image(width, height)
     unless profile_image.attached?
@@ -22,5 +22,18 @@ class User < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpeg')
     end
      profile_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+GUEST_USER_EMAIL = "guest@example.com"
+
+  def self.guest
+    find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
+  
+  def guest_user?
+    email == GUEST_USER_EMAIL
   end
 end

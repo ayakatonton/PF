@@ -1,13 +1,9 @@
 <div class='container px-lg-5 px-sm-0'>
    <div class='row'>
-    <div class='col-lg-10 mx-auto col-sm-12'>
+    <div class='col-lg-10 mx-auto col-sm-11'>
       <p class="mi">イベント一覧</p>
         <p class="kase">
-          <% if @group.present? %>
-            <%= @group.name %>
-          <% else %>
-
-          <% end %>
+          <%= @events.group.name %>
         </p>
         <table class='table'>
           <thead>
@@ -22,14 +18,23 @@
             <% @events.each do |event| %>
             <tr>
               <td><%= event.event_date %></td>
-              <td><%#= link_to event.name, その日の予定に飛びたい%></td>
-              <th><%= link_to "編集する", edit_event_path(event) , class: "btn-stitch" %></th>
+              <td></td>
+              <td><%= link_to event.name, edit_event_path(event)%></td>
+              <td>
+                <%#= link_to イベントの写真, class: "btn-stitch" do %> <!--写真-->
+                  <i class="fa-regular fa-image"></i>
+                <%# end %>
+              </td>
+              <td>
+                <%= link_to event_schedules_path(event), class: "btn-stitch" do %> 
+                  <i class="fa-regular fa-image"></i>
+                <% end %>
+              </td>
             </tr>
            <% end %>
           </tbody>
         </table>
-      <%= link_to "すべてのイベント", events_path() %>
-      <a href="<%= new_event_path %>" class="btn-stitch">＋</a> <!-- 新しいイベントを作成するリンク -->
+       <%= link_to "予定追加", new_event_schedule(event), class: "btn-stitch" %>
     </div>
   </div>
 </div>

@@ -2,11 +2,12 @@
   <table class='table'>
     <thead>
       <tr>
-        <th style="width: 10%"></th>
-        <th style="width: 20%">グループ名</th>
+        <th style="width: 7%"></th>
+        <th style="width: 18%">グループ名</th>
         <th style="width: 5%"></th>
-        <th style="width: 50%">ひとこと</th>
-        <th style="width: 15%"></th>
+        <th style="width: 40%">ひとこと</th>
+        <th style="width: 13%"></th>
+        <th style="width: 17%"></th>
       </tr>
     </thead>
     <tbody>
@@ -20,12 +21,14 @@
             <% end %>
           </td>
           <td><%= link_to group.name,group_path(group) %></td>
-          <td><%= link_to '＋',public_group_permits_path(group), class: " btn-stitch" %></td>
+            <td>
+            <%= link_to public_group_permits_path(group), class: "btn-stitch" do %>
+              <i class="fa-solid fa-user-check"></i>
+            <% end %>
+          </td>
           <td><%= group.introduction %></td>
-          <!--% if group.is_owned_by?(current_user) %>-->
-            <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %>
-            </td>
-          <!--% end %>-->
+            <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
+            <td><%= link_to 'イベント',events_path(group_id: @event.group),class: " btn-stitch" %></td>
         </tr>
       <% end %>
     </tbody>
@@ -51,9 +54,15 @@
           <% end %>
         </td>
         <td><%= link_to group.name,group_path(group) %></td>
-        <td><%= link_to '＋',public_group_permits_path(group), class: " btn-stitch" %></td>
+        <% if group.is_owned_by?(current_user) %>
+          <td>
+            <%= link_to public_group_permits_path(group), class: "btn-stitch" do %>
+              <i class="fa-solid fa-user-check"></i>
+            <% end %>
+          </td>
+        <% end %>
         <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
-        <!--% end %>-->
+        <td><%= link_to 'イベント',events_path(group_id: @event.group),class: " btn-stitch" %></td>
       </tr>
       <tr>
         <td colspan=3><%= group.introduction %></td>
