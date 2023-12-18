@@ -25,7 +25,7 @@ class Public::SchedulesController < ApplicationController
   
     if @schedule.update(schedule_params)  
     flash[:notice] = "更新されました！"
-    redirect_to public_calendar_index_path
+    redirect_to event_path(@schedule.event)
     else 
     render :edit
     end
@@ -34,7 +34,7 @@ class Public::SchedulesController < ApplicationController
   def create
      @event = Event.find(params[:event_id]) 
      @schedule = @event.schedules.build(schedule_params)
-    if @schedule.save
+    if @schedule.save!
       redirect_to public_calendar_index_path, notice: '予定を追加しました'
     else
      puts @schedule.errors.full_messages
@@ -44,7 +44,7 @@ class Public::SchedulesController < ApplicationController
   
   private
   def schedule_params
-      params.require(:schedule).permit(:title,:schedule_time,:group_id)
+      params.require(:schedule).permit(:title,:schedule_time,:group_id,:start_time,:end_time)
   end  
   
 end

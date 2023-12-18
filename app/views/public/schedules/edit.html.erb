@@ -2,15 +2,24 @@
   <div class="row">
     <div class="col-md-10 mx-auto ">
       <p class="mi">予定編集</p>
-      
-        <p>イベント名</p>
-       <%= form_with model: @schedule do |f| %>
+        <p></p>
+        <nav>
+          <p class="kase"><%= @schedule.event.title %></p>
+          <p class="kase"><%= @schedule.event.group.name %></p>
+        </nav>
+        予定名
+       <%= form_with model: @schedule, url:event_schedule_path(@schedule.event,@schedule) do |f| %>
           <%= f.text_field :title %>
-          <!--<%= f.date_field :schedule_time, as: :datetime_picker %>わからない-->
-        <p>グループ</p>
-          <%= f.select :group_id, current_user.groups.map{|group| [group[:name], group[:id]]}, {}, {class: 'custom-select'} %>
-          <%= f.button "編集",class:"btn-stitch" %>
-          <%= link_to "削除", schedule_path(@schedule), method: :delete, class: " btn-stitch" %>
+          <div class="row mb-3 mt-3">
+        <div class="col-6">
+          <%= f.time_field :start_time, class: "w-100" %>
+        </div>
+        <div class="col-6">
+          <%= f.time_field :end_time, class: "w-100"  %>
+        </div>
+      </div>
+          <%= f.button "更新",class:"btn-stitch" %>
+          <%= link_to "削除", event_schedule_path(@schedule.event,@schedule), method: :delete, class: " btn-stitch" %>
         <% end %>
         <br>
       

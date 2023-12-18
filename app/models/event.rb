@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :group
   has_many :schedules
+  has_many :photos
   
   validates :title, presence: true
   validates :event_date, presence: true

@@ -9,7 +9,7 @@
           <%= f.date_field :event_date, as: :datetime_picker %>
         <p>グループ</p>
           <%= f.select :group_id, current_user.groups.map{|group| [group[:name], group[:id]]}, {}, {class: 'custom-select'} %>
-          <%= f.button "編集",class:"btn-stitch" %>
+          <%= f.button "更新",class:"btn-stitch" %>
           <%= link_to "削除", event_path(@event), method: :delete, class: " btn-stitch" %>
         <% end %>
         <br>

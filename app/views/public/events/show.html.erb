@@ -10,23 +10,21 @@
         <table class='table'>
           <thead>
             <tr>
-              <th　style="width: 20%">開始時間</th>
-              <th　style="width: 20%">終了時間</th>
-              <th　style="width: 10%"></th>
-              <th　style="width: 50%">予定名</th>
+              <th>開始時間</th>
+              <th>終了時間</th>
+              <th></th>
+              <th>予定名</th>
             </tr>
           </thead>
           <tbody>
             <% @event.schedules.each do |schedule| %>
             <tr>
-             <!--statttime-->
-             <!--enndo-->
-              <td></td>
-              <td><%= schedule.title%></td>
-              <td> <%#= link_to schedule.name, スケジュールのedit%>
-              </td>
-            <% end %>
+             <td style="width: 20%"><%= schedule.start_time.strftime("%H時%M分") %></td>
+             <td style="width: 20%"><%= schedule.end_time.strftime("%H時%M分") %></td>
+              <td style="width: 10%"></td>
+              <td style="width: 50%"><%= link_to schedule.title, edit_event_schedule_path(@event, schedule) %></td>
             </tr>
+            <% end %>
         </tbody>
       </table> 
       <% else %>

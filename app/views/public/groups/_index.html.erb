@@ -28,7 +28,7 @@
           </td>
           <td><%= group.introduction %></td>
             <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
-            <td><%= link_to 'イベント',events_path(group_id: @event.group),class: " btn-stitch" %></td>
+            <td><%= link_to 'イベント',group_events_path(group.id),class: " btn-stitch" %></td>
         </tr>
       <% end %>
     </tbody>

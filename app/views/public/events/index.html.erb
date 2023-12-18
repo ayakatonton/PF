@@ -3,7 +3,7 @@
     <div class='col-lg-10 mx-auto col-sm-11'>
       <p class="mi">イベント一覧</p>
         <p class="kase">
-          <%= @events.group.name %>
+          <%= @group.name %>
         </p>
         <table class='table'>
           <thead>
@@ -19,22 +19,22 @@
             <tr>
               <td><%= event.event_date %></td>
               <td></td>
-              <td><%= link_to event.name, edit_event_path(event)%></td>
+              <td><%= link_to event.title, edit_event_path(event)%></td>
               <td>
-                <%#= link_to イベントの写真, class: "btn-stitch" do %> <!--写真-->
-                  <i class="fa-regular fa-image"></i>
-                <%# end %>
+                <!--写真-->
+                <% event.photos.each do |photo| %>
+                  <%= link_to event_photo_path(event,photo), class: "btn-stitch" do %> 
+                    <i class="fa-regular fa-image"></i>
+                  <% end %>
+                <% end %>
               </td>
               <td>
-                <%= link_to event_schedules_path(event), class: "btn-stitch" do %> 
-                  <i class="fa-regular fa-image"></i>
-                <% end %>
+             <%= link_to "予定追加", new_event_schedule_path(event), class: "btn-stitch" %>
               </td>
             </tr>
            <% end %>
           </tbody>
         </table>
-       <%= link_to "予定追加", new_event_schedule(event), class: "btn-stitch" %>
     </div>
   </div>
 </div>

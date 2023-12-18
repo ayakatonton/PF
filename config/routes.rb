@@ -38,11 +38,13 @@ Rails.application.routes.draw do
     resources :users do
       patch :withdrawal
     end
-    resources :groups
+    resources :groups do
+      resources :events, only: [:index]
+    end
     resources :events do
       resources :schedules
+      resources :photos
     end
-    resources :photos
   end
   
   scope module: :admin do
