@@ -152,6 +152,12 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
   border-bottom: 3px dashed #c5a3cd;
 }
 
-.b-image {
-  background-position: center;
+.top {
+    background-image: url('kesiki.png');
+    height: 470px;
+}
+
+.about {
+    background-image: url('about.png');
+    height: 470px;
 }

@@ -1,66 +1,66 @@
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-md-10 mx-auto ">
-    <p class="mi">ある日の１ページ</p>
-      
-    <div class="pc">
-        <nav>
-  <!--ログインしてしている時-->
-      <div class="row">
-        <div class="col　mt-5 ">
-          <% if user_signed_in? %> 
-          <div class="col text-center mb-5 mt-5 ">
-            <h5>イベントや写真は</h5>
-            <h5>共有するグループをつくると</h5>
-            <h5>制作できるようになります</h5>
+  <div class="top">       
+    <div class="row">
+      <div class="col-md-10 mx-auto ">
+      <p class="mi">ある日の１ページ</p>
+      <div class="pc">
+          <nav>
+    <!--ログインしてしている時-->
+        <div class="row">
+          <div class="col　mt-5 ">
+            <% if user_signed_in? %> 
+            <div class="col text-center mb-5 mt-5 ">
+              <h5>イベントや写真は</h5>
+              <h5>共有するグループをつくると</h5>
+              <h5>制作できるようになります</h5>
+            </div>
+              <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
+              <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
+              <a href="<%= event_photos_path(current_user) %>" class="btn-stitch">思い出一覧</a>
+              <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
+      <!--していない時-->
+            <% else %>
+              <a href="about" class="btn-stitch">about</a>
+              <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
+              <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
+              <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
+            <% end %>
+            </nav>
           </div>
-            <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
-            <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
-            <a href="<%= event_photos_path(current_user) %>" class="btn-stitch">思い出一覧</a>
-            <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
-    <!--していない時-->
-          <% else %>
-            <a href="about" class="btn-stitch">about</a>
-            <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
-            <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
-            <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
-          <% end %>
-          </nav>
-          <div class="b-image"><%= image_tag  "kesiki.png", size:"350x400" %></div>
         </div>
       </div>
-    </div>
-      
-      <div class="su">
-         <!--ログインしてしている時-->
-        <% if user_signed_in? %> 
-          <div class="col text-center mb-5 mt-5 ">
-            <h5>イベントや写真は</h5>
-            <h5>共有するグループをつくると</h5>
-            <h5>制作できるようになります</h5>
-          </div>
-        <nav>
-          <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
-          <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
-        </nav>
-        <br>
-        <nav>
-          <a href="<%= event_photos_path(current_user) %>" class="btn-stitch">思い出一覧</a>
-          <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
-        </nav>
-  <!--していない時-->
-        <% else %>
-        <nav>
-          <a href="about" class="btn-stitch">about</a>
-          <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
-        </nav>
-        <br> 
-        <nav>
-          <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
-          <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
-        </nav>
-        <% end %>
-      <div class="b-image"><%= image_tag  "kesiki.png",size:"260x350" %></div>
+        
+        <div class="su">
+           <!--ログインしてしている時-->
+          <% if user_signed_in? %> 
+            <div class="col text-center mb-5 mt-5 ">
+              <h5>イベントや写真は</h5>
+              <h5>共有するグループをつくると</h5>
+              <h5>制作できるようになります</h5>
+            </div>
+          <nav>
+            <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
+            <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
+          </nav>
+          <br>
+          <nav>
+            <a href="<%= event_photos_path(current_user) %>" class="btn-stitch">思い出一覧</a>
+            <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
+          </nav>
+    <!--していない時-->
+          <% else %>
+          <nav>
+            <a href="about" class="btn-stitch">about</a>
+            <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
+          </nav>
+          <br> 
+          <nav>
+            <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
+          </nav>
+          <% end %>
+        <div class="b-image"><%= image_tag  "kesiki.png",size:"260x350" %></div>
+        </div>
       </div>
     </div>
   </div>
