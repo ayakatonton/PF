@@ -12,15 +12,17 @@
               <th></th>
               <th>イベント名</th>
               <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <% @events.each do |event| %>
             <tr>
-              <td><%= event.event_date %></td>
-              <td></td>
-              <td><%= link_to event.title, edit_event_path(event)%></td>
-              <td>
+              <td style="width: 20%"><%= event.event_date %></td>
+              <td style="width: 5%"></td>
+              <td style="width: 25%"><%= link_to event.title, edit_event_path(event)%></td>
+              <td style="width: 12%">
                 <!--写真-->
                 <% event.photos.each do |photo| %>
                   <%= link_to event_photo_path(event,photo), class: "btn-stitch" do %> 
@@ -28,8 +30,11 @@
                   <% end %>
                 <% end %>
               </td>
-              <td>
-             <%= link_to "予定追加", new_event_schedule_path(event), class: "btn-stitch" %>
+              <td style="width: 19%">
+                <%= link_to "予定追加", new_event_schedule_path(event), class: "btn-stitch" %>
+              </td> 
+              <td style="width: 19%">
+                <%= link_to "写真追加", new_event_photo_path(event), class: "btn-stitch" %>
               </td>
             </tr>
            <% end %>

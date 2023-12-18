@@ -1,10 +1,12 @@
 <div class='container px-lg-5 px-sm-0'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi">アルバム一覧</p>
+      <p class="mi">すべての思い出</p>
       <% @photo.each do |photo| %>
         <%= image_tag photo.image.url(:medium) %>
-        <!--写真にeditリンクつけたい-->
+        <% if current_user && current_user.id == photo.event.user_id %>
+          <%= link_to "写真を編集", edit_event_photo_path(photo.event, photo) %>
+        <% end %>
       <% end %>
     </div>
   </div>

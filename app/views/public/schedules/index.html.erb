@@ -30,7 +30,7 @@
         <% else %>
           <P class="text-center">スケジュールがありません</P>
         <% end %>
-      <%#= link_to "この日の思い出", 写真sho, class: "btn-stitch" %>
+      <%#= link_to "この日の思い出", event_photo_path(@event.photo), class: "btn-stitch" %>
       <%= link_to "すべてのイベント", events_path, class: "btn-stitch" %>
     </div>
   </div>

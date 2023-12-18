@@ -10,6 +10,7 @@ class Public::PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    @event = event = Event.find(params[:event_id])
   end
 
   def edit

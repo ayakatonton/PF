@@ -16,7 +16,7 @@
           </div>
             <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
             <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
-            <a href="<%= photos_path %>" class="btn-stitch">アルバム一覧</a>
+            <a href="<%= event_photos_path(current_user) %>" class="btn-stitch">思い出一覧</a>
             <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
     <!--していない時-->
           <% else %>
@@ -45,7 +45,7 @@
         </nav>
         <br>
         <nav>
-          <a href="<%= photos_path %>" class="btn-stitch">アルバム一覧</a>
+          <a href="<%= event_photos_path(current_user) %>" class="btn-stitch">思い出一覧</a>
           <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
         </nav>
   <!--していない時-->

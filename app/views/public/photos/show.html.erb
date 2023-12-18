@@ -2,17 +2,18 @@
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
       <nav>
-      <p class="mi"><%= link_to  event.title, event_path(event) %></p>
+      <p class="mi"><%= link_to  event.title"の思い出", event_path(event) %></p>
       </nav>
       <nav>
       <p class="kase"><%= @event.event_date %></p>
-      <p class="kase"><%= @group.name %></p>
+      <p class="kase"><%= @event.group.name %></p>
       </nav>
       <% @photos.each do |photo| %>
         <%= image_tag photo.image.url(:medium) %>
       <% end %>
-      
-      <%#= link_to "＋", 写真new, class: "btn-stitch" %>
+      <%= link_to new_event_photo (event,photo), class: "btn-stitch" do %>
+        <i class="fa-solid fa-image"></i> <i class="fa-solid fa-plus"></i>
+      <% end %>
     </div>
   </div>
 </div>

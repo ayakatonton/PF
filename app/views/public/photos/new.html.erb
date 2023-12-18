@@ -2,18 +2,13 @@
   <div class="row">
     <div class="col-md-4 mx-auto ">
       <p class="mi">写真のアップロード</p>
-      <%= form_for @photo, html: { multipart: true } do |f| %>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-        
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      
-        <%= f.file_field :image %>
-      
-        <%= f.submit "写真をシェア", class: "btn-stitch" %>
-      <% end %>
-        <%#= link_to 'イベント写真一覧',　url, class: " btn-stitch" %>
+        <p class="kase"><%= @event.group.name %></p>
+        <p class="kase"><%= @event.title %></p>
+        <p class="kase"><%= @event.event_date %></p>
+          <%= form_for @photo, html: { multipart: true } do |f| %>
+            <%= f.file_field :image %>
+            <%= f.submit "思い出をシェア", class: "btn-stitch mt-3" %>
+          <% end %>
     </div>
   </div>
 </div>

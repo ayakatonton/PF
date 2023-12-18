@@ -28,8 +28,8 @@
           <%= link_to groups_path, class:"nav-link text-light" do %>
             <i class="fa-solid fa-users fa-lg"></i>
           <% end %>
-          <%= link_to event_bookmarks_index_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-calendar-check fa-lg"></i>
+          <%= link_to event_photos_path(current_user), class:"nav-link text-light" do %>
+            <i class="fa-solid fa-images fa-lg "></i>
           <% end %>
       <!--アドミンがログインしてる時 -->
         <% elsif admin_signed_in? %>
