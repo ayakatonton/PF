@@ -2,9 +2,10 @@
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-11'>
       <p class="mi">イベント一覧</p>
-        <p class="kase">
-          <%= @group.name %>
-        </p>
+      <p class="kase">
+        <%= @group.name %>
+      </p>
+      <% if @event.present? %>
         <table class='table'>
           <thead>
             <tr>
@@ -18,28 +19,31 @@
           </thead>
           <tbody>
             <% @events.each do |event| %>
-            <tr>
-              <td style="width: 20%"><%= event.event_date %></td>
-              <td style="width: 5%"></td>
-              <td style="width: 25%"><%= link_to event.title, edit_event_path(event)%></td>
-              <td style="width: 12%">
-                <!--写真-->
-                <% event.photos.each do |photo| %>
-                  <%= link_to event_photo_path(event,photo), class: "btn-stitch" do %> 
-                    <i class="fa-regular fa-image"></i>
+              <tr>
+                <td style="width: 20%"><%= event.event_date %></td>
+                <td style="width: 5%"></td>
+                <td style="width: 25%"><%= link_to event.title, edit_event_path(event)%></td>
+                <td style="width: 12%">
+                  <!--写真-->
+                  <% event.photos.each do |photo| %>
+                    <%= link_to event_photo_path(event,photo), class: "btn-stitch" do %> 
+                      <i class="fa-regular fa-image"></i>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td style="width: 19%">
-                <%= link_to "予定追加", new_event_schedule_path(event), class: "btn-stitch" %>
-              </td> 
-              <td style="width: 19%">
-                <%= link_to "写真追加", new_event_photo_path(event), class: "btn-stitch" %>
-              </td>
-            </tr>
+                </td>
+                <td style="width: 19%">
+                  <%= link_to "予定追加", new_event_schedule_path(event), class: "btn-stitch" %>
+                </td> 
+                <td style="width: 19%">
+                  <%= link_to "写真追加", new_event_event_photo_path(event), class: "btn-stitch" %>
+                </td>
+              </tr>
            <% end %>
           </tbody>
         </table>
+      <% else %>
+        <P class="text-center">イベントがありません</P>
+      <% end %>
     </div>
   </div>
 </div>

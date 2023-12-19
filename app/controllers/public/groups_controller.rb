@@ -51,7 +51,6 @@ class Public::GroupsController < ApplicationController
   end
   
   def search
-    #method = params[:search_method]
     word = params[:search_word]
     if word.present?
       @group = Group.find_by(name:word)

@@ -20,7 +20,9 @@
           <nav>
            <%= link_to "Log out" , destroy_user_session_path, method: :delete, class:"btn-stitch" %>
           <% unless @user.guest_user? %>
-            <a href="<%= edit_user_path %>" class="btn-stitch">編集</a>
+            <% if @user == current_user %>
+              <a href="<%= edit_user_path %>" class="btn-stitch">編集</a>
+            <% end %>
           <% end %>
           </nav>
         </div>

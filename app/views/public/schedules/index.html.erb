@@ -1,37 +1,36 @@
 <div class='container px-lg-5 px-sm-0'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi"><%= @event.title %></p>
-      <nav>
-        <p class="kase"><%= @event.event_date %></p>
-        <p class="kase"><%= @event.title %></p>
-       </nav>
-      <% if @event.schedules.present? %>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th　style="width: 20%">開始時間</th>
-              <th　style="width: 20%">終了時間</th>
-              <th　style="width: 10%"></th>
-              <th　style="width: 50%">予定名</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @event.schedules.each do |schedule| %>
-            <tr>
-              <td><%= schedule.start_time %></td>
-              <td><%= schedule.end_time %></td>
-              <td></td>
-              <td><%= link_to schedule.title, edit_event_schedule_path(@event, schedule) %></td>
-            <% end %>
-            </tr>
-        </tbody>
-      </table> 
-        <% else %>
-          <P class="text-center">スケジュールがありません</P>
-        <% end %>
-      <%#= link_to "この日の思い出", event_photo_path(@event.photo), class: "btn-stitch" %>
-      <%= link_to "すべてのイベント", events_path, class: "btn-stitch" %>
+      <p class="mi"><%= @event.group.name %></p>
+      <p class="kase"><%= @event.event_date %></p>
+      <p class="kase"><%= @event.title %></p>
+     </nav>
+    <% if @event.schedules.present? %>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th　style="width: 20%">開始時間</th>
+            <th　style="width: 20%">終了時間</th>
+            <th　style="width: 10%"></th>
+            <th　style="width: 50%">予定名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @event.schedules.each do |schedule| %>
+          <tr>
+            <td><%= schedule.start_time %></td>
+            <td><%= schedule.end_time %></td>
+            <td></td>
+            <td><%= link_to schedule.title, edit_event_schedule_path(@event, schedule) %></td>
+          <% end %>
+          </tr>
+      </tbody>
+    </table> 
+    <% else %>
+      <P class="text-center">スケジュールがありません</P>
+    <% end %>
+      <%= link_to "この日の思い出", event_event_photos_path, class: "btn-stitch" %>
+      <%= link_to "すべてのイベント", photos_path, class: "btn-stitch" %>
     </div>
   </div>
 </div>

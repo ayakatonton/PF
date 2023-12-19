@@ -1,9 +1,10 @@
 class Public::SchedulesController < ApplicationController
+  
   def index
-    @schedules = schedule.all
-    @schedule = schedule.new
+    @schedules = Schedule.all
+    @schedule = Schedule.new
     @groups = Group.where(user: current_user)
-    @event = event = Event.find(params[:id])
+    @events = Event.where(group: @groups)
   end
 
   def show
@@ -21,7 +22,7 @@ class Public::SchedulesController < ApplicationController
   end
   
   def update
-     @schedule= Schedule.find(params[:id])
+     @schedule = Schedule.find(params[:id])
   
     if @schedule.update(schedule_params)  
     flash[:notice] = "更新されました！"
@@ -35,7 +36,7 @@ class Public::SchedulesController < ApplicationController
      @event = Event.find(params[:event_id]) 
      @schedule = @event.schedules.build(schedule_params)
     if @schedule.save!
-      redirect_to public_calendar_index_path, notice: '予定を追加しました'
+      redirect_to event_schedules_path, notice: '予定を追加しました'
     else
      puts @schedule.errors.full_messages
       render :index

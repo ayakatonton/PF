@@ -2,11 +2,9 @@
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
       <p class="mi">すべての思い出</p>
-      <% @photo.each do |photo| %>
-        <%= image_tag photo.image.url(:medium) %>
-        <% if current_user && current_user.id == photo.event.user_id %>
+      <% @photos.each do |photo| %>
+        <%= image_tag photo.image %>
           <%= link_to "写真を編集", edit_event_photo_path(photo.event, photo) %>
-        <% end %>
       <% end %>
     </div>
   </div>

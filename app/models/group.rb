@@ -4,7 +4,8 @@ class Group < ApplicationRecord
   has_many :users, through: :group_users
   belongs_to :owner, class_name: 'User'
   has_many :events
-  has_many :photos
+  has_many :photos, through: :events
+  
  
   validates :name, presence: true, uniqueness: true
   validates :introduction, presence: true

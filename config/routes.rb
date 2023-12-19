@@ -39,12 +39,14 @@ Rails.application.routes.draw do
       patch :withdrawal
     end
     resources :groups do
-      resources :events, only: [:index]
+      resources :events, only: [:index] do
     end
     resources :events do
       resources :schedules
-      resources :photos
+      resources :event_photos
     end
+    
+    resources :photos, only: [:index]
   end
   
   scope module: :admin do
