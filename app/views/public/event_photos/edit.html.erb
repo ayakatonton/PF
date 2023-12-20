@@ -1,19 +1,24 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-4 mx-auto ">
+    <div class="col-md-8 mx-auto text-cente ">
       <p class="mi">選択写真</p>
-      <p class="kase"><%= @event.group.name %></p>
       <div class="row">
-        <div class="col-md-4 mx-auto ">
+        <div class="col-md-8 mx-auto text-center ">
+          <p class="kase"><%= @event.group.name %></p>
           <p class="kase"><%= @event.title %></p>
           <p class="kase"><%= @event.event_date %></p>
         </div>
       </div>
-        <%= image_tag @photo.image %>
-    
+       <div class="row">
+        <div class="col-md-8 mx-auto text-center ">
+          <%= image_tag @photo.image, size:"250x200" %>
+        </div>
+      </div>
     <!-- 写真の削除 -->
-    <%= link_to '写真を削除する', event_event_photo_path(@event,@photo), method: :delete,class: " btn-stitch", data: { confirm: '本当に削除しますか？' } %>
-    <%= link_to 'イベント写真一覧',event_event_photos_path(@event), class: "btn-stitch" %> 
+      <div class="col-md-8 mx-auto ">
+        <%= link_to '写真を削除する', event_event_photo_path(@event,@photo), method: :delete,class: " btn-stitch", data: { confirm: '本当に削除しますか？' } %>
+        <%= link_to 'イベント写真一覧',event_event_photos_path(@event), class: "btn-stitch" %> 
+      </div>
     </div>
   </div>
 </div>

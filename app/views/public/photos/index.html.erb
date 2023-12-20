@@ -1,16 +1,18 @@
 <div class='container px-lg-5 px-sm-0'>
-   <div class='row'>
-    <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi">すべての思い出</p>
-      <% if @photos.present? %>
-        <% @photos.each do |photo| %>
-          <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
-            <%= image_tag photo.image if photo.image.attached? %>
+  <div class="index">
+     <div class='row'>
+      <div class='col-lg-10 mx-auto col-sm-12'>
+        <p class="mi">すべての思い出</p>
+        <% if @photos.present? %>
+          <% @photos.each do |photo| %>
+            <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
+              <%= image_tag photo.image, size:"250x200" if photo.image.attached? %>
+            <% end %>
           <% end %>
+        <% else %>
+          <P class="text-center">まだ思い出がありません！</P>
         <% end %>
-      <% else %>
-        <P class="text-center">まだ思い出がありません！</P>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

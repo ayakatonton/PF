@@ -1,10 +1,11 @@
 <div class='container px-lg-5 px-sm-0'>
-  <%= flash[:notice] %>
-  <div class='row'>
-    <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi">グループ一覧</p>
-      <%= render 'index', groups: @groups %>
+  <div class='issyo'>
+    <%= flash[:notice] %>
+    <div class='row'>
+      <div class='col-lg-10 mx-auto col-sm-12'>
+        <p class="mi">グループ一覧</p>
+        <%= render 'index', groups: @groups %>
+      </div>
     </div>
   </div>
 </div>
-<div class="b-image"><%= image_tag  "issyo.png", size:"280x290" %></div>
