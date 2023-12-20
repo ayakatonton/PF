@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -39,7 +40,7 @@ Rails.application.routes.draw do
       patch :withdrawal
     end
     resources :groups do
-      resources :events, only: [:index] do
+      resources :events, only: [:index]
     end
     resources :events do
       resources :schedules
