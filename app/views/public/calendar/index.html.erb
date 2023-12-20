@@ -11,7 +11,7 @@
       <%= date.day %>
         <% @events.each do |event| %>
           <% if user_signed_in? && event.event_date == date && current_user.groups.pluck(:id).include?(event.group_id) %>
-           <%= link_to  event.title, event_path(event) %>
+           <%= link_to  event.title, group_event_path(event.group.id, event.id) %>
           <% end %>
         <% end %>
     <% end %>

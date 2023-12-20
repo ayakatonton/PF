@@ -1,48 +1,13 @@
-<div class="pc">
-  <table class='table'>
-    <thead>
-      <tr>
-        <th style="width: 7%"></th>
-        <th style="width: 18%">グループ名</th>
-        <th style="width: 5%"></th>
-        <th style="width: 40%">ひとこと</th>
-        <th style="width: 13%"></th>
-        <th style="width: 17%"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% groups.each do |group| %>
-        <tr>
-          <td>
-            <% if group.group_image.attached? %>
-              <%= image_tag group.group_image,size:"50x50" %>
-            <% else %>
-              <%= image_tag 'no_image', size: "50x50" %>
-            <% end %>
-          </td>
-          <td><%= link_to group.name,group_path(group) %></td>
-            <td>
-           <% if group.is_owned_by?(current_user) && group.permits.present? %>
-              <%= link_to public_group_permits_path(group), class: "btn-stitch" do %>
-                <i class="fa-solid fa-user-check"></i>
-              <% end %>
-            <% end %>
-          </td>
-          <td><%= group.introduction %></td>
-            <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
-            <td><%= link_to 'イベント',events_path(group.id),class: " btn-stitch" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table> 
-</div>    
-<div class="su">
-  <table class='table'>
+
+<table class='table'>
   <thead>
     <tr>
-      <th></th>
-      <th>グループ名</th>
-      <th></th>
+      <th style="width: 7%"></th>
+      <th style="width: 18%">グループ名</th>
+      <th style="width: 5%"></th>
+      <th style="width: 40%">ひとこと</th>
+      <th style="width: 13%"></th>
+      <th style="width: 17%"></th>
     </tr>
   </thead>
   <tbody>
@@ -56,20 +21,17 @@
           <% end %>
         </td>
         <td><%= link_to group.name,group_path(group) %></td>
-        <% if group.is_owned_by?(current_user) %>
           <td>
+         <% if group.is_owned_by?(current_user) && group.permits.present? %>
             <%= link_to public_group_permits_path(group), class: "btn-stitch" do %>
               <i class="fa-solid fa-user-check"></i>
             <% end %>
-          </td>
-        <% end %>
-        <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
-        <td><%= link_to 'イベント',events_path(group_id: @event.group),class: " btn-stitch" %></td>
-      </tr>
-      <tr>
-        <td colspan=3><%= group.introduction %></td>
+          <% end %>
+        </td>
+        <td><%= group.introduction %></td>
+          <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn-stitch" %></td>
+          <td><%= link_to 'イベント',group_events_path(group),class: " btn-stitch" %></td>
       </tr>
     <% end %>
   </tbody>
-  </table> 
-</div>  
+</table> 

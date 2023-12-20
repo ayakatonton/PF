@@ -30,7 +30,7 @@
       <P class="text-center">スケジュールがありません</P>
     <% end %>
       <%= link_to "この日の思い出", event_event_photos_path, class: "btn-stitch" %>
-      <%= link_to "すべてのイベント", photos_path, class: "btn-stitch" %>
+      <%= link_to "すべてのイベント", group_events_path(@event.group), class: "btn-stitch" %>
     </div>
   </div>
 </div>

@@ -30,7 +30,9 @@
       <% else %>
         <P class="text-center">スケジュールがありません</P>
       <% end %>
-      <a href="<%= new_event_schedule_path(@event) %>" class="btn-stitch">＋</a><!-- 新しい予定を作成するリンク -->
+        <%= link_to new_event_schedule_path(@event), class: "btn-stitch" do %>
+          <i class="fa-solid fa-list"></i><i class="fa-solid fa-plus"></i>
+        <% end %> 
     </div>
   </div>
 </div>

@@ -13,7 +13,7 @@
     
     <!-- 写真の削除 -->
     <%= link_to '写真を削除する', event_event_photo_path(@event,@photo), method: :delete,class: " btn-stitch", data: { confirm: '本当に削除しますか？' } %>
-    <%= link_to 'イベント写真一覧',event_event_photos_path(@event,@photo), class: "btn-stitch" %> 
+    <%= link_to 'イベント写真一覧',event_event_photos_path(@event), class: "btn-stitch" %> 
     </div>
   </div>
 </div>

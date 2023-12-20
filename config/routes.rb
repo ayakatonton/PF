@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       patch :withdrawal
     end
     resources :groups do
-      resources :events, only: [:index]
+      resources :events
     end
     resources :events do
       resources :schedules

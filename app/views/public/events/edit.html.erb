@@ -10,7 +10,7 @@
         <p>グループ</p>
           <%= f.select :group_id, current_user.groups.map{|group| [group[:name], group[:id]]}, {}, {class: 'custom-select'} %>
           <%= f.button "更新",class:"btn-stitch" %>
-          <%= link_to "削除", event_path(@event), method: :delete, class: " btn-stitch" %>
+          <%= link_to "削除", group_event_path(@event.group,@event), method: :delete, class: " btn-stitch" %>
         <% end %>
         <br>
       

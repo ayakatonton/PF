@@ -4,12 +4,25 @@
       <div class="col-md-10 mx-auto ">
       <p class="mi">ある日の１ページ</p>
       
-  <!--ログインしてしている時-->
       <nav>
       <div class="row">
         <div class="col　mt-5 ">
           <div class="col text-center mb-5 mt-5 ">
-          <% if user_signed_in? %> 
+             <!--ゲストユーザーがサインインした時-->
+         <% if user_signed_in? && current_user.email == "guest@example.com" %>
+            <h5>こんにちは！</h5>
+            <h5>予定とアルバムを</h5>
+            <h5>共有できるアプリです。</h5>
+            <h6>アベルくんとラビィくんと</h6>
+            <h6>最高の思い出を</h6>
+            <h6>お友達とシェアしましょう！</h6>
+            <h5>グループ検索に guest と入力してみてください！</h5>
+            <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
+            <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
+            <a href="<%= photos_path %>" class="btn-stitch">思い出一覧</a>
+            <a href="about" class="btn-stitch">about</a>
+  <!--ログインしてしている時-->
+          <% elsif user_signed_in? %> 
             <h5>イベントや写真は</h5>
             <h5>共有するグループをつくると</h5>
             <h5>制作できるようになります</h5>
@@ -31,20 +44,6 @@
               <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
               <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
           <% end %>
-      <!--ゲストユーザーがサインインした時-->
-         <!--% if current_user && current_user.guest? %>-->
-            <h5>こんにちは！</h5>
-            <h5>予定とアルバムを</h5>
-            <h5>共有できるアプリです。</h5>
-            <h6>アベルくんとラビィくんと</h6>
-            <h6>最高の思い出を</h6>
-            <h6>お友達とシェアしましょう！</h6>
-            <h5>グループ検索に guest と入力してみてください！</h5>
-            <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
-            <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
-            <a href="<%= photos_path %>" class="btn-stitch">思い出一覧</a>
-            <a href="about" class="btn-stitch">about</a>
-          <!--% end %>-->
         </nav>
       </div>
     </div>

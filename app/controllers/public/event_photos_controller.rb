@@ -5,7 +5,7 @@ class Public::EventPhotosController < ApplicationController
   end
 
   def show
-     @event = Event.find(params[:id])
+     @event = Event.find(params[:event_id])
   end
 
   def new
@@ -15,9 +15,9 @@ class Public::EventPhotosController < ApplicationController
   
   def create
      @event = Event.find(params[:event_id])
-     @photo = @event.photos.new
+     @photo = @event.photos.new(event_photo_params)
     if @event.save
-      redirect_to event_event_photo_path(@event,@photo), notice: '写真を共有しました'
+      redirect_to event_event_photos_path(@event), notice: '写真を共有しました'
     else
      puts @event.errors.full_messages
       render :index
@@ -48,7 +48,7 @@ class Public::EventPhotosController < ApplicationController
   
    private
   def event_photo_params
-      params.require(:photo).permit(:imag,:event_date,:group_id,:other_attributes)
+      params.require(:photo).permit(:image,:event_date,:group_id,:other_attributes)
   end
   
   

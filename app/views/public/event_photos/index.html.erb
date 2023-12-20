@@ -9,7 +9,9 @@
       <p class="kase"><%= @event.group.name %></p>
       </nav>
       <% @photos.each do |photo| %>
-        <%= image_tag photo.image %>
+        <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
+            <%= image_tag photo.image if photo.image.attached? %>
+        <% end %>
       <% end %>
       <%= link_to new_event_event_photo_path(@event), class: "btn-stitch" do %>
         <i class="fa-solid fa-image"></i> <i class="fa-solid fa-plus"></i>

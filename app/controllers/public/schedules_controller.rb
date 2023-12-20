@@ -1,7 +1,8 @@
 class Public::SchedulesController < ApplicationController
   
   def index
-    @schedules = Schedule.all
+    @event = Event.find(params[:event_id])
+    @schedules = @event.schedules
     @schedule = Schedule.new
     @groups = Group.where(user: current_user)
     @events = Event.where(group: @groups)
