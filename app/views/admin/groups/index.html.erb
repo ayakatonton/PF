@@ -1,5 +1,5 @@
-<%= form_with(url: admin_users_path, method: :get) do |form| %>
-  <%= form.text_field :search, placeholder: "ユーザーを検索" %>
+<%= form_with(url: admin_groups_path, method: :get) do |form| %>
+  <%= form.text_field :search, placeholder: "グループを検索" %>
   <%= form.submit "検索" %>
 <% end %>
 
@@ -9,11 +9,11 @@
       <th></th>
       <th>ID</th>
       <th>Name</th>
-      <th>Actions</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+    <% @groups.each do |group| %>
       <tr>
         <td>
           <% if group.group_image.attached? %>
@@ -22,11 +22,9 @@
             <%= image_tag 'no_image', size: "50x50" %>
           <% end %>
         </td>
-        <td><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td>
-          <%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-        </td>
+        <td><%= group.id %></td>
+        <td><%= link_to group.name %></td>
+        <td><%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
       </tr>
     <% end %>
   </tbody>
