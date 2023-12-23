@@ -9,8 +9,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :events, through: :groups
   has_many :photos, through: :events
-  has_many :photo_bookmarks
-  has_many :bookmarked_photos, through: :photo_bookmarks, source: :photo
+
   
   # バリテーション
   validates :name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 15 }
