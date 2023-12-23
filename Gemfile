@@ -57,7 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'jquery-rails'
 gem 'simple_calendar', '~> 2.0'
-gem 'rails_admin'
 gem 'kaminari','~> 1.2.1'
 gem "enum_help"
 gem 'rails-i18n'
