@@ -19,7 +19,7 @@
             <!--<h5>グループ検索に guest と入力してみてください！</h5>-->
             <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
             <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
-            <a href="<%= photos_path %>" class="btn-stitch">思い出一覧</a>
+            <a href= "<%= photos_path %>" class="btn-stitch">思い出一覧</a>
             <a href="about" class="btn-stitch">about</a>
   <!--ログインしてしている時-->
           <% elsif user_signed_in? %> 
@@ -30,7 +30,7 @@
             <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
             <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
             <a href="<%= photos_path %>" class="btn-stitch">思い出一覧</a>
-            <a href="photo_bookmarks_index" class="btn-stitch">お気に入り写真</a>
+            <a href="about" class="btn-stitch">about</a>
     <!--していない時-->
           <% else %>
             <h5>一緒に遊びに行く友達と</h5>

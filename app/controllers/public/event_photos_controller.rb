@@ -1,4 +1,5 @@
 class Public::EventPhotosController < ApplicationController
+  
   def index
     @event = Event.find(params[:event_id])
     @photos = @event.photos

@@ -2,7 +2,16 @@
   <div class="row mx-auto mt-5">
     <div class="col-2" style="text-align: left;">
     <p class="mi">おきにいり写真</p>
-    <%= link_to '編集', photos_path, class: "btn-stitch" %>
+      <% if @photos.present? %>
+        <% @photos.each do |photo| %>
+          <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
+            <%= image_tag photo.image, size:"250x200" if photo.image.attached? %>
+          <% end %>
+        <% end %>
+      <% else %>
+          <P class="text-center">まだお気に入りの写真はありません！</P>
+      <% end %>
+  
     </div>
   </div>
 </div>

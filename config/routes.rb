@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     end
     
     resources :photos, only: [:index]
-  end
+    end
   
   scope module: :admin do
     resources :photos

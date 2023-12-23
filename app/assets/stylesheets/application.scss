@@ -155,29 +155,42 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
 .top {
     background-image: url('kesiki.png');
     height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
 }
 
 .about {
     background-image: url('about.png');
     height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
 }
 
 .aru1 {
     background-image: url('aru1.png');
     height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
 }
 
 .issyo {
     background-image: url('issyo.png');
     height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
 }
 
 .guru {
     background-image: url('issyo.png');
     height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
 }
 
 .paso {
     background-image: url('paso.png');
     height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
 }
