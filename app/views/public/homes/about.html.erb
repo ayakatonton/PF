@@ -10,9 +10,8 @@
         <h6>お友達とシェアしましょう！</h6>
           <%= image_tag  "about.jpg",size:"190x320", class:"center"  %>
       </div>
+       <%= link_to '管理者ログイン', new_admin_session_path %>
     </div>
   </div>
 </div>
-<% if current_user.try(:admin?) %>
-  <%= link_to '管理者ログイン', rails_admin_path %>
-<% end %>
+

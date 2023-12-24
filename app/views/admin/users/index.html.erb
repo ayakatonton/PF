@@ -1,33 +1,44 @@
-<%= form_with(url: admin_users_path, method: :get) do |form| %>
-  <%= form.text_field :search, placeholder: "ユーザーを検索" %>
-  <%= form.submit "検索" %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td>
-          <% if group.group_image.attached? %>
-            <%= image_tag group.group_image,size:"50x50" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "50x50" %>
-          <% end %>
-        </td>
-        <td><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td>
-          <%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container mt-4">
+  <div class="top">       
+    <div class="row">
+      <div class="col-md-10 mx-auto text-center ">
+        <p class="mi">登録ユーザー一覧</p>
+        <%= form_with(url: admin_users_path, method: :get) do |form| %>
+          <%= form.text_field :search, placeholder: "ユーザーを検索" %>
+          <%= form.submit "検索" %>
+        <% end %>
+        
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 10%"></th>
+              <th style="width: 20%"></th>
+              <th style="width: 10%">ID</th>
+              <th style="width: 40%">Name</th>
+              <th style="width: 20%"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td></td>
+                <td>
+                  <% if user.profile_image.attached? %>
+                    <%= image_tag user.get_profile_image(80,80) %>
+                  <% else %>
+                    <%= image_tag 'no_image', size: "80x80" %>
+                  <% end %>
+                </td>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td>
+                  <%= link_to "Delete", admin_user_path(user), method: :delete,class: "btn-stitch",  data: { confirm: "本当に削除しますか？" } %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

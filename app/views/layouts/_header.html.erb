@@ -33,15 +33,10 @@
           <% end %>
       <!--アドミンがログインしてる時 -->
         <% elsif admin_signed_in? %>
-          <%= link_to root_path, class:"nav-link text-light" do %>
+          <%= link_to admin_top_path, class:"nav-link text-light" do %>
             <i class="fa-solid fa-house fa-lg"></i>
           <% end %>
-          <%= link_to users_path, class:"nav-link text-light" do %>
-            <i class="fa-solid fa-tag fa-lg"></i>
-          <% end %>
-          <%= link_to photos_path, class:"nav-link text-light" do %>
-            <i class="fa-regular fa-image fa-lg"></i>
-          <% end %>
+        
           <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light" do %>
             <i class="fa-solid fa-right-from-bracket fa-lg"></i>
           <% end %> 

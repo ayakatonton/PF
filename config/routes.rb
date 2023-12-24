@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'homes/index'
+  end
   devise_for :users, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
   
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, skip: [:passwords] ,controllers: {
   sessions: "admin/sessions"
   }
   
@@ -49,11 +52,12 @@ Rails.application.routes.draw do
     resources :photos, only: [:index]
     end
   
-  scope module: :admin do
+   namespace :admin do
     resources :photos
     resources :users
+    resources :groups
+    get 'index', to: 'homes#index', as: 'top'
   end
-
     # events#index 
     get 'events', to: 'events#index', as: 'events_index'
   

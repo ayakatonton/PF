@@ -3,7 +3,11 @@
     <div class="b-image"><%= image_tag  "rabya.png", size:"200x200" %></div>
       <div class="col-sm-11 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-2">
         <p class="mi">プロフィール</p>
-        <%= image_tag @user.get_profile_image(100,100) %>
+          <% if @user.profile_image.attached? %>
+            <%= image_tag @user.get_profile_image(100,100) %>
+          <% else %>
+            <%= image_tag 'no_image', size: "50x50" %>
+          <% end %>
         <table class="table">
           <tbody>
             <tr>
