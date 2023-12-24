@@ -1,10 +1,13 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-10 mx-auto text-center ">
-      <p class="mi"><%= @event.event_date %><%= @event.group.name %></p>
+      <p class="mi"><%= @event.title %></p>
       
       <!--予定作成フォーム-->
-     <h3> <p class="kase"><%= @event.title %></p></h3>
+     <h3> <p class="kase">
+       <%= @event.event_date %>
+       <%= @event.group.name %>
+      </p></h3>
       <%= form_with model: @schedule ,url: event_schedules_path(@event) do |f| %>
       <div class="row">
         <div class="col-12">
@@ -25,7 +28,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6">
+        <div class="col-6 ">
           <%= f.button "予定追加",class:"btn-stitch" %>
         </div>
       </div>

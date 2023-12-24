@@ -17,20 +17,28 @@
             <h6>最高の思い出を</h6>
             <h6>お友達とシェアしましょう！</h6>
             <!--<h5>グループ検索に guest と入力してみてください！</h5>-->
+          <nav>
             <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
             <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
+          </nav>
+          <nav class ="mt-5">
             <a href= "<%= photos_path %>" class="btn-stitch">思い出一覧</a>
             <a href="about" class="btn-stitch">about</a>
+          </nav>
   <!--ログインしてしている時-->
           <% elsif user_signed_in? %> 
             <h5>イベントや写真は</h5>
             <h5>共有するグループをつくると</h5>
             <h5>制作できるようになります</h5>
           </div>
+          <nav>
             <a href="<%= new_group_path %>" class="btn-stitch">グループ作成</a>
             <a href="<%= search_public_groups_path%>" class="btn-stitch">グループ検索</a>
+          </nav>
+          <nav class ="mt-5">
             <a href="<%= photos_path %>" class="btn-stitch">思い出一覧</a>
             <a href="about" class="btn-stitch">about</a>
+          </nav>
     <!--していない時-->
           <% else %>
             <h5>一緒に遊びに行く友達と</h5>
@@ -39,11 +47,15 @@
             <h6>アベルくんとラビィくんみたいに</h6>
             <h6>最高の思い出を作って</h6>
             <h6>お友達とシェアしましょう！</h6>
+          <nav>
               <a href="about" class="btn-stitch">about</a>
               <a href="<%= public_calendar_index_path %>" class="btn-stitch">カレンダー</a>
+          </nav>
+          <nav class ="mt-5">
               <a href="<%= new_user_session_path %>" class="btn-stitch"> Log in </a>
               <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn-stitch", method: :post %>
           <% end %>
+          </nav>
         </nav>
       </div>
     </div>

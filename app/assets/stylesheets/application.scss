@@ -228,7 +228,6 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     height: 470px;
     background-color: rgba(#fff, 0.3);
     background-blend-mode: overlay;
-   
 }
 
 .jidori {
@@ -236,6 +235,8 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     height: 470px;
     background-color: rgba(#fff, 0.3);
     background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: bottom 50px right 100px;
 }
 
 .otete {
@@ -245,3 +246,28 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     background-blend-mode: overlay;
 }
 
+.kesiki {
+    background-image: url('kesiki.png');
+    height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: bottom 50px right 100px;
+}
+
+.abela {
+    background-image: url('abela.png');
+    height: 150px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+    background-position: 65% 55%;
+    background-repeat: no-repeat;
+}
+.rabya {
+    background-image: url('rabya.png');
+    height: 150px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+    background-position: 65% 55%;
+    background-repeat: no-repeat;
+}

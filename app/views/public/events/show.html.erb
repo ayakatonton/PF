@@ -1,7 +1,13 @@
 <div class='container px-lg-5 px-sm-0'>
+  <div class='kesiki'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
-      <p class="mi"><%= @event.title %></p>
+      <p class="mi">
+        <%= @event.title %>
+        <%= link_to new_event_schedule_path(@event), class: "btn-stitch ml-3" do %>
+          <i class="fa-solid fa-list"></i><i class="fa-solid fa-plus"></i>
+        <% end %> 
+      </p>
       <nav>
         <p class="kase"><%= @event.event_date %></p>
         <p class="kase"><%= @event.group.name %></p>
@@ -30,9 +36,8 @@
       <% else %>
         <P class="text-center">スケジュールがありません</P>
       <% end %>
-        <%= link_to new_event_schedule_path(@event), class: "btn-stitch" do %>
-          <i class="fa-solid fa-list"></i><i class="fa-solid fa-plus"></i>
-        <% end %> 
+        
+      </div>
     </div>
   </div>
 </div>

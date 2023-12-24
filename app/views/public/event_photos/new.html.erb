@@ -1,14 +1,16 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-4 mx-auto ">
+    <div class="col-md-10 mx-auto ">
       <p class="mi">写真のアップロード</p>
-        <p class="kase"><%= @event.group.name %></p>
-        <p class="kase"><%= @event.title %></p>
-        <p class="kase"><%= @event.event_date %></p>
-          <%= form_with model:[@event,@photo],url: event_event_photos_path(@event),html: { multipart: true } do |f| %>
-            <%= f.file_field :image %>
-            <%= f.submit "思い出をシェア", class: "btn-stitch mt-3" %>
-          <% end %>
+        <div class="text-center">
+          <p class="kase"><%= @event.group.name %></p>
+          <p class="kase"><%= @event.title %></p>
+          <p class="kase"><%= @event.event_date %></p>
+            <%= form_with model:[@event,@photo],url: event_event_photos_path(@event),html: { multipart: true } do |f| %>
+              <%= f.file_field :image %>
+              <%= f.submit "思い出をシェア", class: "btn-stitch mt-3" %>
+            <% end %>
+      </div>
     </div>
   </div>
 </div>

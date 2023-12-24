@@ -1,48 +1,50 @@
-<div class='container px-lg-5 px-sm-0'>
-   <div class='row'>
+<div class='container'>
+  <div class='row'> 
     <div class='col-lg-10 mx-auto col-sm-11'>
-      <p class="mi">イベント一覧</p>
-      <p class="kase">
-        <%= @group.name %>
-      </p>
-      <% if @event.present? %>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th>日にち</th>
-              <th></th>
-              <th>イベント名</th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @events.each do |event| %>
+      <div class='kesiki'>
+        <p class="mi">イベント一覧</p>
+        <p class="kase">
+          <%= @group.name %>
+        </p>
+        <% if @event.present? %>
+          <table class='table'>
+            <thead>
               <tr>
-                <td style="width: 20%"><%= event.event_date %></td>
-                <td style="width: 5%"></td>
-                <td style="width: 25%"><%= link_to event.title, edit_group_event_path(@group,event)%></td>
-                <td style="width: 12%">
-                  <% if  event.photos.present? %>
-                    <%= link_to event_event_photos_path(event), class: "btn-stitch" do %> 
-                      <i class="fa-regular fa-image"></i>
-                    <% end %>
-                  <% end %>
-                </td>
-                <td style="width: 19%">
-                  <%= link_to "予定追加", new_event_schedule_path(event), class: "btn-stitch" %>
-                </td> 
-                <td style="width: 19%">
-                  <%= link_to "写真追加", new_event_event_photo_path(event), class: "btn-stitch" %>
-                </td>
+                <th>日にち</th>
+                <th></th>
+                <th>イベント名</th>
+                <th></th>
+                <th></th>
+                <th></th>
               </tr>
-           <% end %>
-          </tbody>
-        </table>
-      <% else %>
-        <P class="text-center">イベントがありません</P>
-      <% end %>
-    </div>
+            </thead>
+            <tbody>
+              <% @events.each do |event| %>
+                <tr>
+                  <td style="width: 20%"><%= event.event_date %></td>
+                  <td style="width: 5%"></td>
+                  <td style="width: 25%"><%= link_to event.title, edit_group_event_path(@group,event)%></td>
+                  <td style="width: 12%">
+                    <% if  event.photos.present? %>
+                      <%= link_to event_event_photos_path(event), class: "btn-stitch" do %> 
+                        <i class="fa-regular fa-image"></i>
+                      <% end %>
+                    <% end %>
+                  </td>
+                  <td style="width: 19%">
+                    <%= link_to "予定追加", new_event_schedule_path(event), class: "btn-stitch" %>
+                  </td> 
+                  <td style="width: 19%">
+                    <%= link_to "写真追加", new_event_event_photo_path(event), class: "btn-stitch" %>
+                  </td>
+                </tr>
+             <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <P class="text-center">イベントがありません</P>
+        <% end %>
+      </div>
+     </div>
   </div>
 </div>

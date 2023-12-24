@@ -1,9 +1,13 @@
-<div class='container px-lg-5 px-sm-0'>
+<div class='container px-lg-11 px-sm-0'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
-      <nav>
-      <p class="mi"><%= "#{@event.title}の思い出" %></p>
-      </nav>
+      <p class="mi">
+        <%= "#{@event.title}の思い出" %>
+        <%= link_to new_event_event_photo_path(@event), class: "btn-stitch ml-3" do %>
+          <i class="fa-solid fa-image"></i> <i class="fa-solid fa-plus"></i>
+        <% end %>
+      </p>
+   
       <nav>
       <p class="kase"><%= @event.event_date %></p>
       <p class="kase"><%= @event.group.name %></p>
@@ -13,13 +17,7 @@
             <%= image_tag photo.image, size:"250x200" if photo.image.attached? %>
         <% end %>
       <% end %>
-      <div class='row'>
-        <div class='col-lg-10 mx-auto col-sm-12 text-center'>
-          <%= link_to new_event_event_photo_path(@event), class: "btn-stitch" do %>
-            <i class="fa-solid fa-image"></i> <i class="fa-solid fa-plus"></i>
-          <% end %>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>
