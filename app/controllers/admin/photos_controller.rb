@@ -1,4 +1,5 @@
 class Admin::PhotosController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @photos = Photo.all
   end

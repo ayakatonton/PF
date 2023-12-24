@@ -18,7 +18,7 @@
     <div class="form-group text-right col-3">
       <% if group.is_owned_by?(current_user) %>
         <% if action_name=="edit" %>
-          <%= link_to "削除", group_path(group), method: :delete, class: " btn-stitch" %>
+          <%= link_to "削除", group_path(group), method: :delete, data: {confirm: "削除しますか？"}, class: " btn-stitch" %>
         <% end %>
       <% end %>
     </div>

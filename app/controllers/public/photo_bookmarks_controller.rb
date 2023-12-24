@@ -1,4 +1,5 @@
 class Public::PhotoBookmarksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_photo
 
   def index

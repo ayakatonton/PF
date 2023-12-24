@@ -12,7 +12,7 @@
       <% if @group.is_owned_by?(current_user) %>
       　　<%= link_to '編集', edit_public_group_path(@group), class: "btn-stitch" %>
       <% elsif @group.includesUser?(current_user)%>
-      　　<%= link_to '仲間からぬける', public_group_group_users_path(@group, user_id: current_user.id), method: :delete, class: "btn-stitch" %>
+      　　<%= link_to '仲間からぬける', public_group_group_users_path(@group, user_id: current_user.id), method: :delete, data: {confirm: "仲間からぬけますか？"}, class: "btn-stitch" %>
       <% else %>
       　　<%= link_to '仲間にはいる', public_group_permits_path(@group), method: :post, class: "btn-stitch" %>
       <% end %>

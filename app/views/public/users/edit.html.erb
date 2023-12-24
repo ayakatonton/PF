@@ -32,7 +32,7 @@
         </div>
         <div class="text-right">
         <nav>
-        <%= link_to "退会する", user_withdrawal_path(current_user) , method: :patch, class: "btn-stitch" %>
+        <%= link_to "退会する", user_withdrawal_path(current_user) , method: :patch, data: {confirm: "退会しますか？"}, class: "btn-stitch" %>
         <%= f.submit "更新", class: "btn-stitch" %>
         </nav>
       <% end %>
