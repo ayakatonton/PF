@@ -173,6 +173,13 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     background-blend-mode: overlay;
 }
 
+.aru2 {
+    background-image: url('aru2.png');
+    height: 430px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+}
+
 .issyo {
     background-image: url('issyo.png');
     height: 470px;
@@ -186,6 +193,7 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     height: 470px;
     background-color: rgba(#fff, 0.3);
     background-blend-mode: overlay;
+    background-position: center;
 }
 
 .paso {
@@ -193,4 +201,47 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     height: 470px;
     background-color: rgba(#fff, 0.3);
     background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: bottom 50px right 100px;
 }
+
+.abel {
+    background-image: url('abel.png');
+    height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+    background-position: 25% 75%;
+    background-repeat: no-repeat;
+}
+
+.raby {
+    background-image: url('raby.png');
+    height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+    background-position: bottom 50px right 100px;
+    background-repeat: no-repeat;
+}
+
+.aberab {
+    background-image: url('aberab.png');
+    height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+   
+}
+
+.jidori {
+    background-image: url('jidori.png');
+    height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+}
+
+.otete {
+    background-image: url('otete.png');
+    height: 470px;
+    background-color: rgba(#fff, 0.3);
+    background-blend-mode: overlay;
+}
+
