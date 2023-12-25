@@ -1,14 +1,13 @@
 <div class="container">
   <div class="row">
       <div class="col-sm-11 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-2">
-        <div class="abela">
+       
         <p class="mi">プロフィール</p>
           <% if @user.profile_image.attached? %>
             <%= image_tag @user.get_profile_image(100,100) %>
           <% else %>
             <%= image_tag asset_path('no_image.jpg'), size: "50x50" %>
           <% end %>
-      </div>
         <table class="table">
           <tbody>
             <tr>
