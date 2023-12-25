@@ -8,22 +8,15 @@
   <p class="kase"><%= @event.event_date %></p>
   <p class="kase"><%= @event.group.name %></p>
   <div class='row'>
- <% @photos.each do |photo| %>
-      <div class='su col-12 col-sm-4'>
-            <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
-              <% if photo.image.attached? %>
-                <%= image_tag photo.image, size:"160x90" %>
-              <% end %>
-            <% end %>
+    <% @photos.each do |photo| %>
+      <div class='col-6 col-sm-4'>
+        <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
+          <% if photo.image.attached? %>
+            <%= image_tag photo.image, size:"240x160" %>
+          <% end %>
+        <% end %>
       </div>
-      <div class='pc col-6 col-sm-4'>
-            <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
-              <% if photo.image.attached? %>
-                <%= image_tag photo.image, size:"240x160" %>
-              <% end %>
-            <% end %>
-      </div>
-  <% end %>
-    </div>
+    <% end %>
+  </div>
 <%= paginate @photos %>
 </div>
