@@ -3,7 +3,7 @@ class Public::EventPhotosController < ApplicationController
   
   def index
     @event = Event.find(params[:event_id])
-    @photos = @event.photos
+    @photos = @event.photos.page(params[:page]).per(6)
   end
 
   def show

@@ -23,9 +23,9 @@
                 <td></td>
                   <td>    
                   <% if user.profile_image.attached? %>
-                    <%= image_tag user.get_profile_image(80,80) %>
+                    <%= image_tag user.get_profile_image(60,60) %>
                   <% else %>
-                    <%= image_tag 'no_image', size: "80x80" %>
+                    <%= image_tag 'no_image', size: "60x60" %>
                   <% end %>
                   </td>
                   <td></td>

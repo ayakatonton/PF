@@ -76,10 +76,7 @@ ul {
   padding: 0;
   margin: 0!important;
 }
-nav {
-  display: flex !important; /* 横並びにする */
-  justify-content:space-around;
-}
+
 li{
   display: flex; /* 横並びにする */
   justify-content:space-between;
@@ -270,4 +267,71 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     background-blend-mode: overlay;
     background-position: 65% 55%;
     background-repeat: no-repeat;
+}
+
+.paginate{ 
+  text-align: center; }
+.pagination{
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-flex;
+    position: relative;
+}
+.pagination li a.page-link{
+    line-height: 41px;
+    height: 42px;
+    width: 42px;
+    padding: 0;
+    margin: 0 5px;
+    border: none;
+    border-radius: 50% !important;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    background-color: #6d2e46;
+    font-size: 20px;
+    font-weight: 600;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:hover,
+.pagination li a.page-link:focus,
+.pagination li.active a.page-link:hover,
+.pagination li.active a.page-link{
+    color: #222;
+    background: transparent;
+    box-shadow: 0 0 10px #a26769;
+}
+.pagination li a.page-link:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    border: 5px solid #a26769;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+    transform: rotate(155deg);
+    transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:hover:before,
+.pagination li a.page-link:focus:before,
+.pagination li.active a.page-link:before{
+    opacity: 1;
+    transform: rotate(-15deg);
+}
+@media only screen and (max-width: 480px){
+.pagination{
+  font-size: 0;
+  border: none;
+  display: inline-block;
+}
+.pagination li{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 10px;
+}
 }

@@ -6,8 +6,7 @@
 
 <footer>
   <div class="su">
-    <nav>
-      <ul>
+      <ul class="justify-content-center">
         <!--ログインしている時ユーザー-->
         <% if user_signed_in? %>
           <%= link_to root_path(current_user), class:"nav-link text-light" do %>
@@ -48,7 +47,6 @@
           <% end %> 
         <% end %>
       </ul>
-    </nav> 
   </div>
 </footer>
  

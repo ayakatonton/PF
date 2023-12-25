@@ -6,7 +6,7 @@ class Public::GroupsController < ApplicationController
     @photo = Photo.new
     @schedule = Schedule.new
     @event = Event.new
-    @groups = Group.joins(:group_users).where(group_users: { user_id: current_user.id })
+    @groups = Group.joins(:group_users).where(group_users: { user_id: current_user.id }).page(params[:page]).per(6)
     @user = User.find(current_user.id)
   end
 
@@ -32,6 +32,7 @@ class Public::GroupsController < ApplicationController
       @group.users << current_user
       redirect_to groups_path, method: :post
     else
+      flash[:alert] = "同じ名前のグループが存在しています！"
       render 'new'
     end
   end

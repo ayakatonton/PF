@@ -1,4 +1,4 @@
-<div class='container px-lg-11 px-sm-0'>
+<div class='container text-center px-lg-11 px-sm-0'>
    <div class='row'>
     <div class='col-lg-10 mx-auto col-sm-12'>
       <p class="mi">
@@ -7,17 +7,16 @@
           <i class="fa-solid fa-image"></i> <i class="fa-solid fa-plus"></i>
         <% end %>
       </p>
-   
-      <nav>
       <p class="kase"><%= @event.event_date %></p>
       <p class="kase"><%= @event.group.name %></p>
-      </nav>
+   
       <% @photos.each do |photo| %>
         <%= link_to edit_event_event_photo_path(photo.event, photo) do %>
             <%= image_tag photo.image, size:"250x200" if photo.image.attached? %>
         <% end %>
       <% end %>
-
+      
     </div>
   </div>
 </div>
+<%= paginate @photos %>
