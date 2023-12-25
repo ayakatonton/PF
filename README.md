@@ -17,7 +17,13 @@
 - 友達と予定その時のアルバムを見たい時
 
 ## 設計書
-後ほど作成予定
+https://docs.google.com/spreadsheets/d/1nOqbc_h3yiA4z61FWi7M77sYV38Wx0N9_Q5EK_DO9DQ/edit#gid=549108681
+
+## ER図
+https://app.diagrams.net/#G1uu9FE-JVGP0lL-Eva5TgW2phVcPrRs2O
+
+## テーブル定義所
+https://docs.google.com/spreadsheets/d/1nR7JwxNZ-itjOV3dCCoCVhQvfX0IZm3y/edit#gid=22058163
 
 ## 開発環境
 - OS：Linux(CentOS)
