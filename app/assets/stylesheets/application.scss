@@ -269,11 +269,14 @@ align-items: center; /* 要素内の内容を垂直方向に中央に配置 */
     background-repeat: no-repeat;
 }
 
+// pe-jine-syonn
 .paginate{ 
   text-align: center; }
 .pagination{
     font-family: 'Ubuntu', sans-serif;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
     position: relative;
 }
 .pagination li a.page-link{

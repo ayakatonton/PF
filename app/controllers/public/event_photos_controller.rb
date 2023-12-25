@@ -50,8 +50,7 @@ class Public::EventPhotosController < ApplicationController
   
    private
   def event_photo_params
-      params.require(:photo).permit(:image,:event_date,:group_id,:other_attributes)
+      params.permit(:image,:event_date,:group_id,:other_attributes)
   end
-  
   
 end
