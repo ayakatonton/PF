@@ -63,7 +63,7 @@ header {
 
 /*フッター*/
 footer {
-  position: sticky;
+  position: sticky!important;
   top: 100vh;
   background-color: #dc8ba7; /* 背景色 */
   color: #fff; /* テキストの色 */
