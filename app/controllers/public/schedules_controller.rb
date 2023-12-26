@@ -13,6 +13,12 @@ class Public::SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
   end
 
+  def destroy
+    @schedule = Schedule.find(params[:id])
+    @schedule.destroy
+    redirect_to event_schedules_path, notice: '削除されました'
+  end
+
   def new
     @schedule = Schedule.new
     @event = Event.find(params[:event_id])
