@@ -43,11 +43,18 @@ class Public::SchedulesController < ApplicationController
   def create
      @event = Event.find(params[:event_id]) 
      @schedule = @event.schedules.build(schedule_params)
-    if @schedule.save!
-      redirect_to event_schedules_path, notice: '予定を追加しました'
+    if schedule_params[:start_time].present? && schedule_params[:end_time].present?
+      if @schedule.save!
+        redirect_to event_schedules_path, notice: '予定を追加しました'
+      else
+       puts @schedule.errors.full_messages
+        render :new
+        flash[:alert] = '追加できませんでした'
+      end
     else
-     puts @schedule.errors.full_messages
-      render :index
+      puts @schedule.errors.full_messages
+        render :new
+        flash[:alert] = '追加できませんでした'
     end
   end
   
