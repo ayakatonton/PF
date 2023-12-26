@@ -1,31 +1,28 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="paso">
-      <div class="col-md-10 mx-auto ">
-      <p class="mi">予定編集</p>
-        <p></p>
-        <nav>
-          <p class="kase"><%= @schedule.event.title %></p>
-          <p class="kase"><%= @schedule.event.group.name %></p>
-        </nav>
-        予定名
-       <%= form_with model: @schedule, url:event_schedule_path(@schedule.event,@schedule) do |f| %>
-          <%= f.text_field :title %>
-          <div class="row mb-3 mt-3">
-        <div class="col-6">
-          <%= f.time_field :start_time, class: "w-100" %>
-        </div>
-        <div class="col-6">
-          <%= f.time_field :end_time, class: "w-100"  %>
-        </div>
-      </div>
-          <%= f.button "更新",class:"btn-stitch" %>
-          <%= link_to "削除", event_schedule_path(@schedule.event,@schedule), method: :delete, class: " btn-stitch" %>
-        <% end %>
-        <br>
-      
-      <a href="<%= public_calendar_index_path%>" class="btn-stitch">戻る</a>
+ 
+    <p class="mi col-12">予定編集</p>
+    <div class="text-center col-6 mx-auto offset-3">
+     
+  
+        <p class="kase"><%= @schedule.event.title %></p>
+        <p class="kase"><%= @schedule.event.group.name %></p>
+   
+    
+        <%= form_with model: @schedule, url:event_schedule_path(@schedule.event,@schedule) do |f| %>
+        <p>予定名</p>
+            <%= f.text_field :title, class: "col-8" %>
+        <br></br>
+            <%= f.time_field :start_time, class: "col-4" %>
+            <%= f.time_field :end_time, class: "col-4" %>
+      <br></br>
+    
+        <%= f.button "更新",class:"btn-stitch col-8" %>
+        <%= link_to "削除", event_schedule_path(@schedule.event,@schedule), method: :delete, class: " btn-stitch col-8 mt-3" %>
+      <% end %>
+  
       </div>
     </div>
-  </div>
+
 </div>
+

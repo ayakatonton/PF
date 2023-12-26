@@ -6,7 +6,7 @@
           <p class="kase"><%= @event.group.name %></p>
           <p class="kase"><%= @event.title %></p>
           <p class="kase"><%= @event.event_date %></p>
-            <%= form_with model:[@event,@photo],url: event_event_photos_path(@event),html: { multipart: true } do |f| %>
+            <%= form_with model:@photo, url: event_event_photos_path(@event) do |f| %>
               <%= f.file_field :image %>
               <%= f.submit "思い出をシェア", class: "btn-stitch mt-3" %>
             <% end %>

@@ -16,14 +16,18 @@ class Public::EventPhotosController < ApplicationController
   end
   
   def create
-     @event = Event.find(params[:event_id])
-     @photo = @event.photos.new(event_photo_params)
-    if @event.save
-      redirect_to event_event_photos_path(@event), notice: '写真を共有しました'
-    else
-     puts @event.errors.full_messages
-      render :index
-    end
+    if params[:photo]
+        @event = Event.find(params[:event_id])
+        @photo = @event.photos.new(event_photo_params)
+        if @event.save
+          redirect_to event_event_photos_path(@event), notice: '写真を共有しました'
+        else
+         puts @event.errors.full_messages
+          render :index
+        end
+    else 
+        redirect_to  new_event_event_photo_path, notice: '写真がありません'
+    end   
   end
 
   def edit
@@ -50,7 +54,7 @@ class Public::EventPhotosController < ApplicationController
   
    private
   def event_photo_params
-      params.require(:photo).permit(:image,:event_date,:group_id,:other_attributes)
+      params.require(:photo).permit(:image, :event_date, :group_id, :other_attributes)
   end
 end
 
