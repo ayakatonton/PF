@@ -2,7 +2,7 @@
 <div class="calendar-container">
   <div class="paso">
   <p class="mi">カレンダー
-  <% if current_user %>
+  <% if current_user && current_user.groups.present? %>
     <%= link_to new_event_path, class:"btn-stitch ml-5 " do %>
       <i class="fa-solid fa-calendar-plus"></i>
     <% end %>
