@@ -55,6 +55,10 @@ ja:
     - 10月
     - 11月
     - 12月
-
-
-
+  devise:
+    sessions:
+      already_signed_out: 既にログアウト済みです。
+      new:
+        sign_in: ログイン
+      signed_in: ログインしました。
+      signed_out: ログアウトしました。
