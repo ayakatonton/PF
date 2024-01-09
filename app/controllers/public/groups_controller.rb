@@ -15,7 +15,7 @@ class Public::GroupsController < ApplicationController
     @schedule = Schedule.new
     @event = Event.new
     @group = Group.find(params[:id])
-    #@user = User.find(params[:id])
+    
   end
 
   def new
