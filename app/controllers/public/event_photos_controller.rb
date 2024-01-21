@@ -20,7 +20,7 @@ class Public::EventPhotosController < ApplicationController
         @event = Event.find(params[:event_id])
         @photo = @event.photos.new(event_photo_params)
         if @event.save
-          redirect_to event_event_photos_path(@event), notice: '写真を共有しました'
+          redirect_to event_event_photos_path(@event), notice: '写真を共有しました!'
         else
          puts @event.errors.full_messages
           render :index
