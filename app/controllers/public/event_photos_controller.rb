@@ -26,7 +26,7 @@ class Public::EventPhotosController < ApplicationController
           render :index
         end
     else 
-        redirect_to  new_event_event_photo_path, notice: '写真がありません'
+        redirect_to  new_event_event_photo_path, notice: '写真がありません!'
     end   
   end
 
